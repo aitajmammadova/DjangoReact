@@ -561,7 +561,25 @@ body {
   align-items: center;
   /* object-fit: contain; */
 }
-
+.blog_begin_create {
+  position: relative;
+  height: 50vh; 
+  background-image: url(/static/blog_banner_create.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* object-fit: contain; */
+}
+.blog_begin_create p {
+  font-size: 70px;
+  font-style: bold;
+  font-weight: 900;
+  color: #274c58;
+  font-family: "Roboto";
+}
 .blog_prd_absolute {
   width: 80%;
   position: absolute;
@@ -1237,6 +1255,7 @@ a {
 }
 
 .form_row {
+  /* padding-top: 10px; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1251,6 +1270,7 @@ a {
 }
 
 .form_label {
+ 
   margin-bottom: 20px;
   font-family: Roboto, sans-serif;
   color: #274c5b;
@@ -1285,9 +1305,23 @@ a {
   width: 100%;
   background-color: #ffffff;
 }
-
+.input_double_textarea{
+  display: block;
+  height: 400px;
+  padding-top: 30px;
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  padding-left: 30px;
+  border: 1px solid #7eb693;
+  border-radius: 16px;
+  color: #ababab;
+  font-style: italic;
+  width: 100%;
+  background-color: #ffffff;
+}
 .form_message textarea {
-  margin-top: 20px;
+  margin: 20px 14.2px;
 }
 /* Contact */
 
@@ -3438,10 +3472,9 @@ header {
   color: #274c5b;
   font-family: "Open Sans", sans-serif;
 }
-.blogcreate:first-of-type{
-  padding-top: 30px;
+.blog_create{
+  padding: 50px 0;
 }
-
 .input_form {
   padding: 15px;
   width: 800px;
@@ -3460,3 +3493,10 @@ header {
   border: 0
 }
  
+.form_space{
+  padding-top: 20px;
+}
+
+.form_double{
+
+}

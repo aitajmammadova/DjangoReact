@@ -199,22 +199,27 @@ function Header({ basket }) {
                   alt=""
                 />
               </div>
+
               <label className="hamburger_menu_icon" htmlFor="menu_bar_input">
                 <i className="fa-solid fa-bars"></i>
               </label>
+
             </div>
           </div>
         </div>
       </header>
+
       {favoriteModalShown && (
         <FavoriteModal
           favoriteModalShown={favoriteModalShown}
           setFavoriteModalShown={setFavoriteModalShown}
         />
       )}
+
       {modalShown && (
         <Modal modalShown={modalShown} setModalShown={setModalShown} />
       )}
+      
       {isLogin && (
         <LoginModal
           handleLogin={handleLogin}

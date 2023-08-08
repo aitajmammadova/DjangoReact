@@ -9,9 +9,7 @@ class Blogs(models.Model):
     image=models.ImageField(blank=True,null=True)
     
     blog_title=models.TextField(blank=True,null=True)
-    
     summary=models.TextField(blank=True,null=True)
-    
     
     title=models.CharField(max_length=350,null=True)
     context=models.TextField(blank=True,null=True)

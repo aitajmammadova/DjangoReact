@@ -13,7 +13,7 @@ urlpatterns = [
     path('blogs/',include("blogs.urls")),
     path('team/',include("team.urls")),
     re_path(r'^(?P<path>.*)/$', TemplateView.as_view(template_name='base.html')),
-    path('accounts/', include("accounts.urls")),
+    path('api/accounts/', include("accounts.urls")),
 ]
 
 urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

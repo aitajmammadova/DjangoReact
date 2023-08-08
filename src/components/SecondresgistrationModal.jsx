@@ -1,5 +1,6 @@
-import reg1 from "../images/ella-olsson-KPDbRyFOTnE-unsplash.jpg";
+ 
 import { CiCircleRemove } from "react-icons/ci";
+import React from "react";
 
 const RegistrationModal = ({
   handleSignUpExit,
@@ -82,7 +83,7 @@ const RegistrationModal = ({
         </div>
       </div>
       <div className="login-img">
-        <img src={reg1} alt="" />
+        <img src="static/regis.jpg" alt="" />
         <div onClick={handleSignUpExit}>
           <CiCircleRemove />
         </div>

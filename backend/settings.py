@@ -41,18 +41,18 @@ INSTALLED_APPS = [
     #installing
     'rest_framework',
     'corsheaders',
+    
     # 'fontawesomefree',
-
-
     'rest_framework_simplejwt',
     
     
     #api
+    'accounts',
     'team',
     'api_recipes',
     'shop',
     'blogs',
-    'accounts',
+    
     'contact',
 
 ]
@@ -73,6 +73,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+AUTH_USER_MODEL= "accounts.MyUser"
 
 ROOT_URLCONF = 'backend.urls'
 
@@ -91,6 +92,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
@@ -197,3 +199,8 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.BasicAuthentication",
     )
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# CSRF_COOKIE_SECURE = False
+# CSRF_COOKIE_NAME = 'csrftoken'
+# CSRF_COOKIE_HTTPONLY = False  # Should be False to allow JavaScript access
