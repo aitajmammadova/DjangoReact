@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from "react";
 // import loginIcons from "../images/login.jpg";
 import { CiCircleRemove } from "react-icons/ci";
+import axios from 'axios';
 
 const LoginModal = ({
   handleLogin,
@@ -10,41 +11,20 @@ const LoginModal = ({
   dataForm,
   dataFormVendor,
 }) => {
-  const [isLogin, setIsLogin] = useState({
-    email: "",
-    password: "",
-  });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleLoginUser = () => {
-    const foundUser = dataForm.find(
-      (user) =>
-        user.mail === isLogin.email && user.password === isLogin.password
-    );
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    const foundUserVendor = dataFormVendor.find((user) => {
-      user.mail === isLogin.email && user.password === isLogin.password;
-    });
-
-    if (foundUser || foundUserVendor) {
-      alert("Successful login!");
-    } else {
-      alert("Failed login!");
+    try {
+      const response = await axios.post('http://127.0.0.1:8000/api/accounts/login/', { email, password });
+      // Handle the response, e.g., set user state or redirect to another page
+    } catch (error) {
+      // Handle error, e.g., display error message to the user
     }
-  };
 
-  const handleIsLogin = (e) => {
-    const { name, value } = e.target;
-
-    setIsLogin((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  useEffect(() => {
-    console.log(isLogin);
-  }, [isLogin]);
-
+  }
   return (
     <div className="login-wrapper">
       <div className="login-input">
@@ -55,51 +35,60 @@ const LoginModal = ({
             <p>Login in with your email address and password</p>
           </div>
         </div>
+
         <div className="login-input-title">
-          <div>
-            <label htmlFor="">Email Address</label>
-            <input
-              onChange={handleIsLogin}
-              name="email"
-              value={isLogin.email}
-              type="email"
-              placeholder="Enter your email..."
-            />
-          </div>
-          <div>
-            <label htmlFor="">Password</label>
-            <input
-              onChange={handleIsLogin}
-              name="password"
-              value={isLogin.password}
-              type="text"
-              placeholder="Password"
-            />
-          </div>
-          <div className="login-remember">
-            <input type="checkbox" name="Remember me" id="" />
-            <label htmlFor="">Remember me</label>
-          </div>
-        </div>
-        <div className="login-button">
-          <button onClick={handleLoginUser}>Sign In</button>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="">Email Address</label>
+              <input
+                onChange={(e) => setEmail(e.target.value)}
+                name="email"
+                value={email}
+                type="email"
+                required
+                placeholder="Enter your email..." />
+            </div>
+            <div>
+              <label htmlFor="">Password</label>
+              <input
+                onChange={(e) => setPassword(e.target.value)}
+                name="password"
+                value={password}
+                type="text"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <div>
+            <div className="login-remember">
+              <input type="checkbox" name="Remember me" id="" />
+              <label htmlFor="">Remember me</label>
+            </div></div>
+
+            <div className="login-button">
+              <button type="submit">Sign In</button>
+            </div>
+
+          </form>
         </div>
         <div className="sing-up" onClick={handleSignUp}>
           <p>Buyer create account</p>
           <p>Sign Up</p>
         </div>
-        <div className="sing-up" onClick={handleSignUpVendor}>
+        {/* <div className="sing-up" onClick={handleSignUpVendor}>
           <p>Vendor create account</p>
           <p>Sign Up</p>
-        </div>
+        </div> */}
+      </div> 
+      <div>
+        <div className="login-img">
+          <img src={"static/login.jpg"} alt="" />
+          <div onClick={handleLogin}>
+            <CiCircleRemove />
+          </div>
+        </div></div>
       </div>
-      <div className="login-img">
-        <img src={"static/login.jpg"} alt="" />
-        <div onClick={handleLogin}>
-          <CiCircleRemove />
-        </div>
-      </div>
-    </div>
+   
   );
 };
 

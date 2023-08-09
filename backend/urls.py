@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/accounts/', include("accounts.urls")),
     path("", TemplateView.as_view(template_name="base.html")),
     path("",include('contact.urls')),
     path('recipes/',include("api_recipes.urls")),
@@ -13,7 +14,7 @@ urlpatterns = [
     path('blogs/',include("blogs.urls")),
     path('team/',include("team.urls")),
     re_path(r'^(?P<path>.*)/$', TemplateView.as_view(template_name='base.html')),
-    path('api/accounts/', include("accounts.urls")),
+     
 ]
 
 urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

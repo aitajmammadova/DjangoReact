@@ -139,7 +139,6 @@ function Contact() {
                 type="text"
                 className="form_input"
                 maxLength="256"
-                
                 placeholder="Enter Your Name"
                 id="full_name"
                 required

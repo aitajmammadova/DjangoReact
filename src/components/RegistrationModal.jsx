@@ -1,95 +1,107 @@
 import { useEffect } from "react";
- 
+
 import { CiCircleRemove } from "react-icons/ci";
 import React from "react";
-
+import axios from 'axios'
+import { useState } from "react";
 const RegistrationModal = ({
   handleSignUpExit,
   setDataFormInput,
   dataFormInput,
   setDataForm,
 }) => {
-  const handleFormData = (e) => {
-    const { name, value } = e.target;
-    setDataFormInput((prev) => {
-      return {
-        ...prev,
-        [name]: value,
-      };
-    });
-  };
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('')
+  const [responseMessage, setResponseMessage] = useState('');
 
-  const handleSingUp = () => {
-    setDataForm((prev) => {
-      return [...prev, dataFormInput];
-    });
-    setDataFormInput({
-      name: "",
-      username: "",
-      password: "",
-      mail: "",
-    });
-  };
+
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    // Check if password and passwordConfirm match
+    if (password !== passwordConfirm) {
+      setResponseMessage('Passwords do not match');
+      return;
+    }
+
+    const registrationData = {
+      email: email,
+      password: password
+    };
+    fetch('http://127.0.0.1:8000/api/accounts/register/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(registrationData)
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Handle API response (success or error)
+        setResponseMessage(data.message);
+      })
+      .catch(error => {
+        // Handle error
+        console.error('Registration error:', error);
+      });
+  }
+
 
   return (
     <div className="login-wrapper">
       <div className="login-input">
-        <div className="login-input-head">
-          <div className="org">Buyer Registration</div>
-          <div className="login-input-head-title">
-            <p>Welcome Back</p>
-            <p>Login in with your email address and password</p>
+        <form  method='post' onSubmit={handleSubmit}>
+          <div className="login-input-head">
+            <div className="org">Buyer Registration</div>
+            <div className="login-input-head-title">
+              <p>Welcome Back</p>
+              <p>Login in with your email address and password</p>
+            </div>
           </div>
-        </div>
-        <div className="login-input-title">
-          <div>
-            <label htmlFor="">Name</label>
-            <input
-              onChange={handleFormData}
-              name="name"
-              value={dataFormInput.name}
-              type="text"
-              placeholder="Enter your name..."
-            />
+          <div className="login-input-title">
+    
+            <div className="registr_email">
+              <label htmlFor="">Enter your email</label>
+              <input
+                onChange={(e) => setEmail(e.target.value)}
+                name="email"
+                value={email}
+                type="email"
+                placeholder="Enter your email..."
+              />
+            </div>
+
+            <div>
+              <label htmlFor="">Create your password</label>
+              <input
+                onChange={(e) => setPassword(e.target.value)}
+                name="password"
+                value={password}
+                type="password"
+                placeholder="Create your password..."
+              />
+            </div>
+            <div>
+              <label htmlFor="">Confirm your password</label>
+              <input
+                onChange={(e) => setPasswordConfirm(e.target.value)}
+                name="password"
+                value={passwordConfirm}
+                type="password"
+                placeholder="Confirm Password"
+              />
+            </div>
+            <div className="login-remember">
+              <input type="checkbox" name="Remember me" id="" />
+              <label htmlFor="">Remember me</label>
+            </div>
           </div>
-          <div>
-            <label htmlFor="">Username</label>
-            <input
-              onChange={handleFormData}
-              name="username"
-              value={dataFormInput.username}
-              type="text"
-              placeholder="Username"
-            />
+          <div className="login-button">
+            <button type='submit'>Sign Up</button>
           </div>
-          <div>
-            <label htmlFor="">Create your password</label>
-            <input
-              onChange={handleFormData}
-              name="password"
-              value={dataFormInput.password}
-              type="password"
-              placeholder="Create your password..."
-            />
-          </div>
-          <div className="registr_email">
-            <label htmlFor="">Enter your email</label>
-            <input
-              onChange={handleFormData}
-              name="mail"
-              value={dataFormInput.mail}
-              type="email"
-              placeholder="Enter your email..."
-            />
-          </div>
-          <div className="login-remember">
-            <input type="checkbox" name="Remember me" id="" />
-            <label htmlFor="">Remember me</label>
-          </div>
-        </div>
-        <div className="login-button">
-          <button onClick={handleSingUp}>Sign Up</button>
-        </div>
+        </form>
       </div>
       <div className="login-img">
         <img src='static/reg1.jpg' alt="" />
@@ -97,6 +109,7 @@ const RegistrationModal = ({
           <CiCircleRemove />
         </div>
       </div>
+
     </div>
   );
 };

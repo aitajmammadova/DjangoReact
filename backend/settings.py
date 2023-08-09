@@ -68,7 +68,9 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     
     'django.middleware.common.CommonMiddleware',
+    
     'django.middleware.csrf.CsrfViewMiddleware',
+    
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -139,16 +141,21 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
-
-# STATIC_URL = 'static/'
-# STATICFILES_DIRS=[
-#     BASE_DIR / "dist",
-#     BASE_DIR / "public"
-# ]
-# STATIC_ROOT=BASE_DIR /"static"
+ 
 CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8000",  # Replace with your frontend URL
+]
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',  # Add 'content-type' here
+    'dnt',
+    'origin',
+    'user-agent',
+]
+
 
 
 import os
@@ -163,16 +170,21 @@ else:
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
  
+ 
 # Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+ 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
 
 
 INTERNAL_IPS=[
     'localhost',
     '127.0.0.1',
 ]
+
+
 
 from datetime import timedelta
 SIMPLE_JWT = {
@@ -201,6 +213,15 @@ REST_FRAMEWORK = {
 }
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# EMAIL_HOST="smtp.gmail.com"
+# EMAIL_HOST_USER="a.mammadzadeh01@gmail.com"
+# EMAIL_HOST_PASSWORD='qizdingxszsetrvv'
+# EMAIL_PORT=465
+# EMAIL_USE_TSL= False
+# EMAIL_USE_SSL= False
+
 # CSRF_COOKIE_SECURE = False
 # CSRF_COOKIE_NAME = 'csrftoken'
 # CSRF_COOKIE_HTTPONLY = False  # Should be False to allow JavaScript access
+# DEFAULT_FROM_EMAIL = 'gaxaki8020@weishu8.com'
