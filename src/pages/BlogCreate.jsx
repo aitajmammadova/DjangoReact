@@ -14,7 +14,8 @@ const BlogCreate = () => {
         titlesecond: "",
         contextsecond: "",
         titlethird: "",
-        contextthird: ""
+        contextthird: "",
+        image: ""
       });
     
       const handleChange = (e) => {
@@ -23,11 +24,11 @@ const BlogCreate = () => {
           [e.target.name]: e.target.value,
         });
       };
-      
+       
       const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-          const response = await fetch('blogs/create/', {
+          const response = await fetch('/blogs/create/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -47,6 +48,21 @@ const BlogCreate = () => {
           // E-posta gönderme işlemi sırasında bir hata oluştu
           alert('Formu göndermek mümkün olmadı: ' + error.message);
         }
+        setFormData({
+            blog_name: "",
+            farmer: "",
+            blog_title: "",
+            summary: "",
+            title: "",
+            context: "",
+            titlefirst: "",
+            contextfirst: "",
+            titlesecond: "",
+            contextsecond: "",
+            titlethird: "",
+            contextthird: "",
+            image:""
+        })
       };
 
     return (
@@ -59,7 +75,7 @@ const BlogCreate = () => {
 
                 <div data-aos="fade-up" className="form_row form_space">
                     <div className="form_form">
-                        <label for="blog_name" className="form_label">
+                        <label htmlFor="blog_name" className="form_label">
                             Blog Name*
                         </label>
                         <input
@@ -75,7 +91,7 @@ const BlogCreate = () => {
                         />
                     </div>
                     <div className="form_form">
-                        <label for="farmer" className="form_label">
+                        <label htmlFor="farmer" className="form_label">
                             Farmer*
                         </label>
                         <input
@@ -94,7 +110,7 @@ const BlogCreate = () => {
                 </div>
         
                 <div data-aos="fade-up" className="form_message form_space">
-                    <label for="summary" className="form_label">
+                    <label htmlFor="summary" className="form_label">
                         Summary*
                     </label>
                     <textarea
@@ -108,7 +124,7 @@ const BlogCreate = () => {
                 </div>
                     <div data-aos="fade-up" className="form_row form_space">
                 <div className="form_form">
-                    <label for="title" className="form_label">
+                    <label htmlFor="title" className="form_label">
                         Title*
                     </label>
                     <input
@@ -122,31 +138,30 @@ const BlogCreate = () => {
                         value={formData.title}
                         onChange={handleChange}
                         name="title"
-                    />
+                    ></input>
                 </div>
 
                     <div className="form_form">
-                        <label for="firsttitle" className="form_label">
+                        <label htmlFor="titlefirst" className="form_label">
                             First Title*
                         </label>
                         <input
                             type="text"
                             className="form_input"
-
                             maxLength="256"
                             placeholder="Enter First Title"
-                            id="firsttitle"
+                            id="titlefirst"
                             required
-                            value={formData.firsttitle}
+                            value={formData.titlefirst}
                             onChange={handleChange}
-                            name="firsttitle"
-                        />
+                            name="titlefirst"
+                        ></input>
                     </div>
                     </div>
 
                     <div data-aos="fade-up" className="form_row form_space form_double">
                         <div className="form_form">
-                            <label for="context" className="form_label">
+                            <label htmlFor="context" className="form_label">
                                 Context*
                             </label>
                             <textarea
@@ -161,25 +176,24 @@ const BlogCreate = () => {
                         </div>
 
                         <div className="form_form">
-                            <label for="firstcontext" className="form_label">
+                            <label htmlFor="contextfirst" className="form_label">
                                 First Context*
                             </label>
                             <textarea
                                 type="text"
                                 className="input_double_textarea"
- 
                                 placeholder="Context"
-                                id="firstcontext"
+                                id="contextfirst"
                                 required
-                                value={formData.firstcontext}
+                                value={formData.contextfirst}
                                 onChange={handleChange}
-                                name="firstcontext"
+                                name="contextfirst"
                             />
                         </div>
                     </div>    
                     <div data-aos="fade-up" className="form_row form_space">
                         <div className="form_form">
-                            <label for="secondtitle" className="form_label">
+                            <label htmlFor="titlesecond" className="form_label">
                                 Second Title*
                             </label>
                             <input
@@ -188,16 +202,15 @@ const BlogCreate = () => {
 
                                 maxLength="256"
                                 placeholder="Enter Second Title"
-                                id="secondtitle"
-                                required
-                                value={formData.secondtitle}
+                                id="titlesecond"
+                                value={formData.titlesecond}
                                 onChange={handleChange}
-                                name="secondtitle"
+                                name="titlesecond"
                             />
                         </div>
 
                         <div className="form_form">
-                            <label for="thirdtitle" className="form_label">
+                            <label htmlFor="titlethird" className="form_label">
                                 Third Title*
                             </label>
                             <input
@@ -206,11 +219,10 @@ const BlogCreate = () => {
 
                                 maxLength="256"
                                 placeholder="Enter Third Title"
-                                id="thirdtitle"
-                                required
-                                value={formData.thirdtitle}
+                                id="titlethird"
+                                value={formData.titlethird}
                                 onChange={handleChange}
-                                name="thirdtitle"
+                                name="titlethird"
                             />
                         </div>
                     </div>
@@ -218,40 +230,50 @@ const BlogCreate = () => {
 
                     <div data-aos="fade-up" className="form_row form_space form_double">
                         <div className="form_form">
-                            <label for="secondcontext" className="form_label">
+                            <label htmlFor="contextsecond" className="form_label">
                                 Second Context*
                             </label>
                             <textarea
                                 className="input_double_textarea"
                                 placeholder="Context"
-                                id="secondcontext"
-                                required
-                                value={formData.secondcontext}
+                                id="contextsecond"
+                                value={formData.contextsecond}
                                 onChange={handleChange}
-                                name="secondcontext"
+                                name="contextsecond"
                             />
                         </div>
                         <div className="form_form">
-                            <label for="thirdcontext" className="form_label">
+                            <label htmlFor="contextthird" className="form_label">
                                 Third Context*
                             </label>
                             <textarea
                                 className="input_double_textarea"
                                 placeholder="Context"
-                                id="thirdcontext"
-                                required
-                                value={formData.thirdcontext}
+                                id="contextthird"
+                                value={formData.contextthird}
                                 onChange={handleChange}
-                                name="thirdcontext"
+                                name="contextthird"
                             />
                         </div>
-                         
 
                     </div>
- 
-                <button data-aos="fade-up" class="blue_btn">
+                    <div data-aos="fade-up" className="form_row form_space">
+                        <div className="form_form">
+                            <label htmlFor="image" className="form_label">
+                                Image*
+                            </label>
+                            <input
+                                type="image"
+                                // className="form_input"
+                                id="image"
+                                // value={formData.image}
+                                onChange={handleChange}
+                                name="image" />
+                        </div>
+                    </div>
+                <button data-aos="fade-up" className="blue_btn">
                     <p>Submit</p>
-                    <i class="fa-solid fa-circle-arrow-right"></i>
+                    <i className="fa-solid fa-circle-arrow-right"></i>
                 </button>
             </form>
         </section>

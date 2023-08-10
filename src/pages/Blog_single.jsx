@@ -41,16 +41,16 @@ function Blog_single() {
         <div className="blog_single_container">
             
             <h2>{data.title}</h2>
-            <p class="p">{data.context}</p>
+            <p className="p">{data.context}</p>
 
             <h2>{data.titlefirst}</h2>
-            <p class="p">{data.contextfirst}</p>
+            <p className="p">{data.contextfirst}</p>
                    
             <h2>{data.titlesecond}</h2>
-            <p class="p">{data.contextsecond}</p>
+            <p className="p">{data.contextsecond}</p>
 
             <h2>{data.titlethird}</h2>
-            <p class="p">{data.contextthird}</p>
+            <p className="p">{data.contextthird}</p>
 
         </div >
     </section >

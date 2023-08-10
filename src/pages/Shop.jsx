@@ -116,7 +116,7 @@ function Shop() {
                 }}
               />
 
-              <label for="max_calories">Max Calories:</label>
+              <label htmlFor="max_calories">Max Calories:</label>
               <input
                 type="number"
                 className="price_slider"
@@ -130,7 +130,7 @@ function Shop() {
             </div>
 
             {/* <div className="calories_filter ">
-              <label for="calories">Calories:</label>
+              <label htmlFor="calories">Calories:</label>
 
               <input
                 type="number"

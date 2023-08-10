@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-
+import React from "react"
 function Team() {
     const [data, setData] = useState([])
     useEffect(() => {

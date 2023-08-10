@@ -132,7 +132,7 @@ function Contact() {
         <form method="post" onSubmit={handleSubmit}>
           <div data-aos="fade-up" className="form_row">
             <div className="form_form">
-              <label for="full_name" className="form_label">
+              <label htmlFor="full_name" className="form_label">
                 Full Name*
               </label>
               <input
@@ -148,7 +148,7 @@ function Contact() {
               />
             </div>
             <div className="form_form">
-              <label for="full_email" className="form_label">
+              <label htmlFor="full_email" className="form_label">
                 Email Address*
               </label>
               <input
@@ -188,7 +188,7 @@ function Contact() {
                         </div>
                     </div> */}
           <div data-aos="fade-up" className="form_message">
-            <label for="message" className="form_label">
+            <label htmlFor="message" className="form_label">
               Message
             </label>
             <textarea
@@ -201,9 +201,9 @@ function Contact() {
               onChange={handleChange}
             ></textarea>
           </div>
-          <button data-aos="fade-up" class="blue_btn">
+          <button data-aos="fade-up" className="blue_btn">
             <p>Send Message</p>
-            <i class="fa-solid fa-circle-arrow-right"></i>
+            <i className="fa-solid fa-circle-arrow-right"></i>
           </button>
         </form>
       </section>

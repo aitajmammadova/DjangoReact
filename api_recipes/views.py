@@ -23,3 +23,7 @@ def recipe_detail_view(request,id):
     recipe=Recipes.objects.get(id=id)
     serializer=RecipeSerializer(recipe)
     return Response(serializer.data)
+
+
+
+ 

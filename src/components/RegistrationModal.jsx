@@ -63,9 +63,10 @@ const RegistrationModal = ({
           <div className="login-input-title">
     
             <div className="registr_email">
-              <label htmlFor="">Enter your email</label>
+              <label htmlFor="email">Enter your email</label>
               <input
                 onChange={(e) => setEmail(e.target.value)}
+                id="email"
                 name="email"
                 value={email}
                 type="email"
@@ -74,8 +75,9 @@ const RegistrationModal = ({
             </div>
 
             <div>
-              <label htmlFor="">Create your password</label>
+              <label htmlFor="password">Create your password</label>
               <input
+                id="password"
                 onChange={(e) => setPassword(e.target.value)}
                 name="password"
                 value={password}
@@ -84,9 +86,10 @@ const RegistrationModal = ({
               />
             </div>
             <div>
-              <label htmlFor="">Confirm your password</label>
+              <label htmlFor="passwordConfirm">Confirm your password</label>
               <input
                 onChange={(e) => setPasswordConfirm(e.target.value)}
+                id="passwordConfirm"
                 name="password"
                 value={passwordConfirm}
                 type="password"

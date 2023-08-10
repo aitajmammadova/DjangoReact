@@ -28,42 +28,46 @@ def blog_list_view(request):
 @api_view(["POST"])
 @csrf_exempt
 def blog_create_view(request):
-    if request.method == 'POST':
-        # Get the raw JSON data from the request body
-        try:
-            data = json.loads(request.body)
-        except json.JSONDecodeError:
-            return JsonResponse({'error': 'Invalid JSON data.'}, status=400)
+    serializer = BlogSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+    serializer.save()
+    return Response(serializer.data, status=201)
+    # if request.method == 'POST':
+    #     # Get the raw JSON data from the request body
+    #     try:
+    #         data = json.loads(request.body)
+    #     except json.JSONDecodeError:
+    #         return Response({'error': 'Invalid JSON data.'}, status=400)
 
-        # Extract name, email, and message from the JSON data
-        blog_name=data.get('blog_name')
-        farmer=data.get('farmer')
-        # image=data.get('image')
-        blog_title=data.get('blog_title')
-        summary=data.get('summary')
-        title=data.get('title')
-        context=data.get('name')
+    #     # Extract name, email, and message from the JSON data
+    #     blog_name=data.get('blog_name')
+    #     farmer=data.get('farmer')
+    #     # image=data.get('image')
+    #     blog_title=data.get('blog_title')
+    #     summary=data.get('summary')
+    #     title=data.get('title')
+    #     context=data.get('name')
     
-        titlefirst=data.get('firsttitle')
-        contextfirst=data.get('firstcontext')
+    #     titlefirst=data.get('firsttitle')
+    #     contextfirst=data.get('firstcontext')
     
-        titlesecond=data.get('secondtitle')
-        contextsecond=data.get('secondcontext')
+    #     titlesecond=data.get('secondtitle')
+    #     contextsecond=data.get('secondcontext')
     
-        titlethird=data.get('thirdtitle')
-        contextthird=data.get('thirdcontext')
+    #     titlethird=data.get('thirdtitle')
+    #     contextthird=data.get('thirdcontext')
 
-        if not blog_name or not farmer or not summary:
-            return JsonResponse({'error': 'These fields are required.'}, status=400)
+    #     if not blog_name or not farmer or not summary:
+    #         return Response({'error': 'These fields are required.'}, status=400)
 
-        try:
-            blog = Blogs(blog_name=blog_name, farmer=farmer, blog_title=blog_title, summary=summary, title=title, context=context, titlefirst=titlefirst, contextfirst=contextfirst, titlesecond=titlesecond, contextsecond=contextsecond, titlethird=titlethird, contextthird=contextthird )
-            blog.save()
+    #     try:
+    #         blog = Blogs(blog_name=blog_name, farmer=farmer, blog_title=blog_title, summary=summary, title=title, context=context, titlefirst=titlefirst, contextfirst=contextfirst, titlesecond=titlesecond, contextsecond=contextsecond, titlethird=titlethird, contextthird=contextthird )
+    #         blog.save()
 
-        except Exception as e:
-            return JsonResponse({'error': 'An error occurred while saving the blog.'}, status=500)
-    else:
-        return JsonResponse({'error': 'Only POST requests are allowed.'}, status=400)
+    #     except Exception as e:
+    #         return Response({'error': 'An error occurred while saving the blog.'}, status=500)
+    # else:
+    #     return Response({'error': 'Only POST requests are allowed.'}, status=400)
     
             
 @api_view(["GET"])

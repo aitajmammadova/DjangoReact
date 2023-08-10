@@ -14,13 +14,13 @@ class Blogs(models.Model):
     title=models.CharField(max_length=350,null=True)
     context=models.TextField(blank=True,null=True)
     
-    titlefirst=models.CharField(max_length=350,null=True)
+    titlefirst=models.CharField(max_length=350,blank=True,null=True)
     contextfirst=models.TextField(blank=True,null=True)
     
-    titlesecond=models.CharField(max_length=350,null=True)
+    titlesecond=models.CharField(max_length=350,blank=True,null=True)
     contextsecond=models.TextField(blank=True,null=True)
     
-    titlethird=models.CharField(max_length=350,null=True)
+    titlethird=models.CharField(max_length=350,blank=True,null=True)
     contextthird=models.TextField(blank=True,null=True)   
     
  

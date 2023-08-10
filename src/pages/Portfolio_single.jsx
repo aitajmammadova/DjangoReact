@@ -80,7 +80,7 @@ function Portfolio_single() {
                 </div>
                 console.log(a.name)
             })}
-        </div >
+        </div>
     </section >
     </>
   )

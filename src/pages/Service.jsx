@@ -6,17 +6,17 @@ function Services() {
   const [videoShown, setVideoShown] = useState(false);
   return (
     <>
-      <section class="services_banner full-container"></section>
+      <section className="services_banner full-container"></section>
 
-      <section class="service_main container">
-        <div data-aos="fade-up" class="service_title">
+      <section className="service_main container">
+        <div data-aos="fade-up" className="service_title">
           <h5>What we Grow</h5>
           <h3>Better Agriculture for Better Future</h3>
         </div>
 
-        <div class="service_inner">
-          <div class="service_product_about">
-            <ul class="service_content1">
+        <div className="service_inner">
+          <div className="service_product_about">
+            <ul className="service_content1">
               <li data-aos="fade-up">
                 <img src="static/icons/service_icon1.svg" />
                 <h2>Dairy Products</h2>
@@ -39,10 +39,10 @@ function Services() {
                 </p>
               </li>
             </ul>
-            <div class="service_image">
+            <div className="service_image">
               <img src="static/service_product.png" />
             </div>
-            <ul class="service_content2">
+            <ul className="service_content2">
               <li data-aos="fade-up">
                 <img src="static/icons/service_icon4.svg" />
                 <h2>Agricultural Services</h2>
@@ -67,25 +67,25 @@ function Services() {
             </ul>
           </div>
           <Link to="/service-single">
-               <button class="blue_btn">
+               <button className="blue_btn">
             <p>Explore More</p>
-            <i class="fa-solid fa-circle-arrow-right"></i>
+            <i className="fa-solid fa-circle-arrow-right"></i>
           </button>
             </Link>
          
         </div>
       </section>
 
-      <section class="service_video_bg full-container">
-        <div class="service_video_content container">
-          <div data-aos="fade-up" class="service_title">
+      <section className="service_video_bg full-container">
+        <div className="service_video_content container">
+          <div data-aos="fade-up" className="service_title">
             <h5>Organic Only</h5>
             <h3>Everyday Fresh & Clean</h3>
             <p>Organic foods are grown without the use of synthetic pesticides and fertilizers, making them a healthier and more sustainable option for both the environment and our bodies.</p>
           </div>
-          <div data-aos="fade-up" class="video_play_btn">
-            <a onClick={() => setVideoShown(!videoShown)} class="video_play_circle" >
-              <div class="play_img"> <img src="static/play_btn.svg" /> </div>
+          <div data-aos="fade-up" className="video_play_btn">
+            <a onClick={() => setVideoShown(!videoShown)} className="video_play_circle" >
+              <div className="play_img"> <img src="static/play_btn.svg" /> </div>
 
             </a>
           </div>
