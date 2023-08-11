@@ -15,7 +15,7 @@ const BlogCreate = () => {
         contextsecond: "",
         titlethird: "",
         contextthird: "",
-        image: ""
+        // image: ""
       });
     
       const handleChange = (e) => {
@@ -48,21 +48,21 @@ const BlogCreate = () => {
           // E-posta gönderme işlemi sırasında bir hata oluştu
           alert('Formu göndermek mümkün olmadı: ' + error.message);
         }
-        setFormData({
-            blog_name: "",
-            farmer: "",
-            blog_title: "",
-            summary: "",
-            title: "",
-            context: "",
-            titlefirst: "",
-            contextfirst: "",
-            titlesecond: "",
-            contextsecond: "",
-            titlethird: "",
-            contextthird: "",
-            image:""
-        })
+        // setFormData({
+        //     blog_name: "",
+        //     farmer: "",
+        //     blog_title: "",
+        //     summary: "",
+        //     title: "",
+        //     context: "",
+        //     titlefirst: "",
+        //     contextfirst: "",
+        //     titlesecond: "",
+        //     contextsecond: "",
+        //     titlethird: "",
+        //     contextthird: "",
+        //     image:""
+        // })
       };
 
     return (
@@ -257,7 +257,7 @@ const BlogCreate = () => {
                         </div>
 
                     </div>
-                    <div data-aos="fade-up" className="form_row form_space">
+                    {/* <div data-aos="fade-up" className="form_row form_space">
                         <div className="form_form">
                             <label htmlFor="image" className="form_label">
                                 Image*
@@ -270,7 +270,7 @@ const BlogCreate = () => {
                                 onChange={handleChange}
                                 name="image" />
                         </div>
-                    </div>
+                    </div> */}
                 <button data-aos="fade-up" className="blue_btn">
                     <p>Submit</p>
                     <i className="fa-solid fa-circle-arrow-right"></i>

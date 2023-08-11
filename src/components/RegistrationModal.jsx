@@ -21,14 +21,15 @@ const RegistrationModal = ({
     event.preventDefault();
 
     // Check if password and passwordConfirm match
-    if (password !== passwordConfirm) {
-      setResponseMessage('Passwords do not match');
-      return;
-    }
+    // if (password !== passwordConfirm) {
+    //   setResponseMessage('Passwords do not match');
+    //   return;
+    // }
 
     const registrationData = {
       email: email,
-      password: password
+      password: password,
+      passwordConfirm: passwordConfirm,
     };
     fetch('http://127.0.0.1:8000/api/accounts/register/', {
       method: 'POST',
@@ -107,7 +108,7 @@ const RegistrationModal = ({
         </form>
       </div>
       <div className="login-img">
-        <img src='static/reg1.jpg' alt="" />
+        <img src='/static/reg1.jpg' alt="" />
         <div onClick={handleSignUpExit}>
           <CiCircleRemove />
         </div>

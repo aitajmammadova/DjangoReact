@@ -195,7 +195,7 @@ function Header({ basket }) {
                   width={50}
                   height={50}
                   style={{ marginLeft: "5px"}}
-                  src={"static/user.gif"}
+                  src={"/static/user.gif"}
                   alt=""
                 />
               </div>

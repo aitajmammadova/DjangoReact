@@ -86,7 +86,7 @@ const LoginModal = ({
         </div> */}
       </div>
         <div className="login-img">
-          <img src={"static/login.jpg"} alt="" />
+          <img src={"/static/login.jpg"} alt="" />
           <div onClick={handleLogin}>
             <CiCircleRemove />
           </div>

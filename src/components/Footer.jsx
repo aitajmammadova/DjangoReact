@@ -5,7 +5,7 @@ function Footer() {
     <>
           <section className="footer_first">
             <div className="container position">
-                  <img src="static/Backgroundd.png"></img>
+                  <img src="/static/Backgroundd.png"></img>
                   <div className ="footer_first_info footer_first_info_display">
                       <div>
                           <h1 className="footer_subscribe">Subscribe to our Newsletter</h1>
@@ -39,18 +39,18 @@ function Footer() {
                   </div>
                   <div className="main_footer_second footer_organic">
                       <div className='main_organic_footer'>
-                          <img src="static/organick.png"></img>
+                          <img src="/static/organick.png"></img>
                       </div>
                       <p className="p">We are a popular and farming company aspiring to be a leader in the Organic food industry.</p>
                       <div className="footer_organic_img">
                           <div className="footer_img_circle">
-                            <a href="https://www.instagram.com/"><img  src="static/Insta.png"></img></a></div>
+                            <a href="https://www.instagram.com/"><img  src="/static/Insta.png"></img></a></div>
                           <div className="footer_img_circle">
-                            <a href="https://www.facebook.com/"><img src="static/facebook.png"></img></a></div>
+                            <a href="https://www.facebook.com/"><img src="/static/facebook.png"></img></a></div>
                           <div className="footer_img_circle">
-                              <a href="https://twitter.com/"><img src="static/twitter.png"></img></a></div>
+                              <a href="https://twitter.com/"><img src="/static/twitter.png"></img></a></div>
                           <div className="footer_img_circle">
-                              <a href="https://www.pinterest.com/"><img src="static/Pintrest.png"/></a>
+                              <a href="https://www.pinterest.com/"><img src="/static/Pintrest.png"/></a>
                             </div>
                       </div>
                   </div>

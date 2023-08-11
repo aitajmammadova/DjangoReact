@@ -83,7 +83,7 @@ const RegistrationModal = ({
         </div>
       </div>
       <div className="login-img">
-        <img src="static/regis.jpg" alt="" />
+        <img src="/static/regis.jpg" alt="" />
         <div onClick={handleSignUpExit}>
           <CiCircleRemove />
         </div>

@@ -45,7 +45,7 @@ function Contact() {
       <section className="contact_banner full-container"></section>
       <section className="find_out container">
         <div data-aos="fade-up" className="find_out_image">
-          <img src="static/find_out_img.jpg" />
+          <img src="/static/find_out_img.jpg" />
         </div>
         <div className="find_out_content">
           <div data-aos="fade-up" className="find_out_title">

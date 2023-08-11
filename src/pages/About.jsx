@@ -24,7 +24,7 @@ function About() {
             <section className="about_second">
                 <div className="container_about">
                     <div className="about_left_second">
-                        <img src="static/image2.png"/>
+                        <img src="/static/image2.png"/>
                     </div>
                     <div className="about_right_second">
                         <h4 className="h4">About us</h4>
@@ -36,11 +36,11 @@ function About() {
                         <br></br>
                         <div className="about_main_agriculture position">
                             <div className="about_agriculture position">
-                                <img className="position" src="static/Tractor.jpg"></img>
+                                <img className="position" src="/static/Tractor.jpg"></img>
                                 Modern Agriculture Equipment
                             </div>
                             <div className="position about_agriculture">
-                                <img className="position" src="static/Chemical Plant.png"></img>
+                                <img className="position" src="/static/Chemical Plant.png"></img>
                                 No growth hormones are used
                             </div>
                         </div>
@@ -72,33 +72,33 @@ function About() {
                                 <p className="p absolute">Filling, and temptingly healthy, our Biona Organic Granola with Wild Berries is just the thing</p></div>
                         </div>
                         <div  data-aos="fade-left" className="about_third_right">
-                            <img src="static/cucumber.jpg"></img>
+                            <img src="/static/cucumber.jpg"></img>
                         </div>
 
                     </div>
                     <div data-aos="fade-up" className="about_third_second_part">
                         <div className="about_info position">
-                            <div className="about_info_img position"><img src="static/Return Purchase.png"></img></div>
+                            <div className="about_info_img position"><img src="/static/Return Purchase.png"></img></div>
                             <h2 className="about_info_h2">Return Policy</h2>
                             <div className="about_pp"><p className="p">If the product having any issues you can return the product.</p></div>
 
                         </div>
                         <div className="about_info position">
-                            <div className="about_info_img position"><img src="static/Natural Food.png"></img></div>
+                            <div className="about_info_img position"><img src="/static/Natural Food.png"></img></div>
                             <h2 className="about_info_h2">100% Fresh</h2>
                             <div className="about_pp">
                                 <p className="p">Fully organic and fresh products are delivered at door step.</p>
                             </div>
                         </div>
                         <div className="about_info position">
-                            <div className="about_info_img position"><img src="static/Phone Time.png"></img></div>
+                            <div className="about_info_img position"><img src="/static/Phone Time.png"></img></div>
                             <h2 className="about_info_h2">Support 24/7</h2>
                             <div className="about_pp">
                                 <p className="p">Our support team is available for take care the customers.</p>
                             </div>
                         </div>
                         <div className="about_info position">
-                            <div className="about_info_img position"><img src="static/Card Security.png"></img></div>
+                            <div className="about_info_img position"><img src="/static/Card Security.png"></img></div>
                             <h2 className="about_info_h2">Secured Payment</h2>
                             <div className="about_pp">
                                 <p className="p">Fully secured payment methods are used for buying product.</p>
@@ -164,15 +164,15 @@ function About() {
                         
                                     <div className="about_expert">
                                         <div className="about_expert_img">
-                                            <img src="satic/giovani.jpg"></img>
+                                            <img src="/satic/giovani.jpg"></img>
                                         </div>
                                         <div className="about_expert_infos">
                                             <h2 className="about_blue">Giovani</h2>
                                             <div className="about_expert_infoss">
                                                 <h4 className="h4">Farmer</h4>
                                                 <div className="about_info_i">
-                                                    <a href="https://www.facebook.com/"><img src="static/facebook.png"></img></a>
-                                                    <a href="https://twitter.com/"><img src="static/twitter.png"></img></a>
+                                                    <a href="https://www.facebook.com/"><img src="/static/facebook.png"></img></a>
+                                                    <a href="https://twitter.com/"><img src="/static/twitter.png"></img></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -180,32 +180,32 @@ function About() {
                         
                         <div className="about_expert about_expert_infos_center">
                             <div className="about_expert_img">
-                                <img src="static/marianne.jpg"></img>
+                                <img src="/static/marianne.jpg"></img>
                             </div>
                             <div className="about_expert_infos">
                                 <h2 className="about_blue">Marianne Loreno</h2>
                                 <div className="about_expert_infoss">
                                     <h4 className="h4">Designer</h4>
                                     <div className="about_info_i">
-                                        <a href="https://www.instagram.com/"><img src="static/Insta.png"></img></a>
-                                        <a href="https://www.facebook.com/"><img src="static/facebook.png"></img></a>
-                                        <a href="https://twitter.com/"><img src="static/twitter.png"></img></a>
+                                        <a href="https://www.instagram.com/"><img src="/static/Insta.png"></img></a>
+                                        <a href="https://www.facebook.com/"><img src="/static/facebook.png"></img></a>
+                                        <a href="https://twitter.com/"><img src="/static/twitter.png"></img></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="about_expert">
                             <div className="about_expert_img">
-                                <img src="static/riga.jpg"></img>
+                                <img src="/static/riga.jpg"></img>
                             </div>
                             <div className="about_expert_infos">
                                 <h2 className="about_blue">Riga Pelore</h2>
                                 <div className="about_expert_infoss">
                                     <h4 className="h4">Farmer</h4>
                                     <div className="about_info_i">
-                                        <a href="https://www.instagram.com/"><img src="static/Insta.png"></img></a>
-                                        <a href="https://www.facebook.com/"><img src="static/facebook.png"></img></a>
-                                        <a href="https://twitter.com/"><img src="static/twitter.png"></img></a>
+                                        <a href="https://www.instagram.com/"><img src="/static/Insta.png"></img></a>
+                                        <a href="https://www.facebook.com/"><img src="/static/facebook.png"></img></a>
+                                        <a href="https://twitter.com/"><img src="/static/twitter.png"></img></a>
                                     </div>
                                 </div>
                             </div>
@@ -223,7 +223,7 @@ function About() {
                     <div className="about_products">
                         <div data-aos="fade-right" className="about_product">
                             <div className="about_product_img">
-                                <img src="static/spicy.png"></img>
+                                <img src="/static/spicy.png"></img>
                             </div>
                             <div className="about_product_name">
                                 <h2>Spicy</h2>
@@ -231,7 +231,7 @@ function About() {
                         </div>
                         <div data-aos="fade-right" className="about_product">
                             <div className="about_product_img">
-                                <img src="static/nuts.png"></img>
+                                <img src="/static/nuts.png"></img>
                             </div>
                             <div className="about_product_name">
                                 <h2>Nuts & Feesd</h2>
@@ -239,7 +239,7 @@ function About() {
                         </div>
                         <div data-aos="fade-left" className="about_product">
                             <div className="about_product_img">
-                                <img src="static/fruits.png"></img>
+                                <img src="/static/fruits.png"></img>
                             </div>
                             <div className="about_product_name">
                                 <h2>Fruits</h2>
@@ -247,7 +247,7 @@ function About() {
                         </div>
                         <div data-aos="fade-left" className="about_product">
                             <div className="about_product_img">
-                                <img src="static/vegetable.png"></img>
+                                <img src="/static/vegetable.png"></img>
                             </div>
                             <div className="about_product_name">
                                 <h2>Vegetable</h2>
