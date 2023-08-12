@@ -74,7 +74,8 @@ function Header({ basket }) {
   };
 
   const handleLogin = () => {
-    setIsLogin(!isLogin);
+    setRegst(false);
+    setIsLogin(true);
   };
 
   const handleSignUpVendor = () => {
@@ -100,7 +101,7 @@ function Header({ basket }) {
   }, [pathname]);
   return (
     <>
-      <header className="full-container">
+      <header  className="">
         <div className="header ">
           <div className="header_main">
             <div className="logo_menu">
@@ -130,7 +131,7 @@ function Header({ basket }) {
                       <NavLink to="/service-single">Service Single</NavLink>
                     </li>
                     <li>
-                      <NavLink to="/portfolio">Recipes</NavLink>
+                      <NavLink to="/recipe">Recipes</NavLink>
                     </li>
                     <li>
                       <NavLink to="/team">Our Team</NavLink>

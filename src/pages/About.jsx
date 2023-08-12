@@ -105,7 +105,6 @@ function About() {
                             </div>
                         </div>
                     </div>
-
                 </div>
             </section>
 
@@ -122,7 +121,7 @@ function About() {
                             spaceBetween={30}
                             freeMode={true}
                             pagination={{
-                                clickable: true,
+                            clickable: true,
                             }}
                             modules={[FreeMode, Pagination]}
                             className="mySwiper"
@@ -138,81 +137,22 @@ function About() {
                                         <div className="about_expert_infoss">
                                             <h4 className="h4">{a.profession}</h4>
                                             <div className="about_info_i">
-                                                <a href="https://www.facebook.com/"><img src="/facebook.png"></img></a>
-                                                <a href="https://twitter.com/"><img src="/twitter.png"></img></a>
+                                                    {a.facebook && <a href={a.facebook}><img src="/static/facebook.png" alt="Facebook"></img></a>}
+                                                    {a.twitter && <a href={a.twitter}><img src="/static/twitter.png" alt="Twitter"></img></a>}
+                                                    {a.instagram && <a href={a.instagram}><img src="/static/Insta.png" alt="Instagram"></img></a>}
+
+                                                 
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </SwiperSlide>
                         ))}
-                            
                         </Swiper>
                     </div>
                 </div>
             </section>
-
-            <section className="about_fourth_responsive">
-                <div className="container">
-                    <div className="about_center">
-                        <h4 className="h4">Team</h4>
-                        <h2 className="h2">Our Organic Experts</h2>
-                        <p className="p">Simply dummy text of the printing and typesetting industry. Lorem had ceased to been the industry's standard dummy text
-                            ever since the 1500s, when an unknown printer took a galley.</p>
-                    </div>
-                    <div className="about_experts">
-                        
-                                    <div className="about_expert">
-                                        <div className="about_expert_img">
-                                            <img src="/satic/giovani.jpg"></img>
-                                        </div>
-                                        <div className="about_expert_infos">
-                                            <h2 className="about_blue">Giovani</h2>
-                                            <div className="about_expert_infoss">
-                                                <h4 className="h4">Farmer</h4>
-                                                <div className="about_info_i">
-                                                    <a href="https://www.facebook.com/"><img src="/static/facebook.png"></img></a>
-                                                    <a href="https://twitter.com/"><img src="/static/twitter.png"></img></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                        
-                        <div className="about_expert about_expert_infos_center">
-                            <div className="about_expert_img">
-                                <img src="/static/marianne.jpg"></img>
-                            </div>
-                            <div className="about_expert_infos">
-                                <h2 className="about_blue">Marianne Loreno</h2>
-                                <div className="about_expert_infoss">
-                                    <h4 className="h4">Designer</h4>
-                                    <div className="about_info_i">
-                                        <a href="https://www.instagram.com/"><img src="/static/Insta.png"></img></a>
-                                        <a href="https://www.facebook.com/"><img src="/static/facebook.png"></img></a>
-                                        <a href="https://twitter.com/"><img src="/static/twitter.png"></img></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="about_expert">
-                            <div className="about_expert_img">
-                                <img src="/static/riga.jpg"></img>
-                            </div>
-                            <div className="about_expert_infos">
-                                <h2 className="about_blue">Riga Pelore</h2>
-                                <div className="about_expert_infoss">
-                                    <h4 className="h4">Farmer</h4>
-                                    <div className="about_info_i">
-                                        <a href="https://www.instagram.com/"><img src="/static/Insta.png"></img></a>
-                                        <a href="https://www.facebook.com/"><img src="/static/facebook.png"></img></a>
-                                        <a href="https://twitter.com/"><img src="/static/twitter.png"></img></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {/* <a href="https://www.facebook.com/"><img src="/facebook.png"></img></a> */}
 
             <section className="about_fifth">
                 <div className="container">

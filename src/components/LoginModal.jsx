@@ -17,13 +17,23 @@ const LoginModal = ({
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await axios.post('http://127.0.0.1:8000/api/accounts/login/', { email, password });
-      // Handle the response, e.g., set user state or redirect to another page
-    } catch (error) {
-      // Handle error, e.g., display error message to the user
-    }
+    const LoginData = {
+      email: email,
+      password: password
+    };
+    fetch('http://127.0.0.1:8000/api/accounts/login/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(LoginData)
+    })
+      .then(response => response.json())
+      
+      .catch(error => {
 
+        console.error(error);
+      })
   }
   return (
     <div className="login-wrapper">
@@ -33,15 +43,16 @@ const LoginModal = ({
             <div className="org">Organick</div>
             <div className="login-input-head-title">
               <p>Welcome Back</p>
-              <p>Login in with your email address and password</p>
+              <p className="p login_p">Login in with your email address and password</p>
             </div>
         </div>
 
         <div className="login-input-title">
 
           <div>
-            <label htmlFor="">Email Address</label>
+            <label htmlFor="email">Email Address</label>
             <input
+              id='email'
               onChange={(e) => setEmail(e.target.value)}
               name="email"
               value={email}
@@ -50,8 +61,9 @@ const LoginModal = ({
               placeholder="Enter your email..." />
           </div>
           <div>
-            <label htmlFor="">Password</label>
+            <label htmlFor="password">Password</label>
             <input
+              id='password'
               onChange={(e) => setPassword(e.target.value)}
               name="password"
               value={password}
@@ -74,10 +86,11 @@ const LoginModal = ({
           
 
         </div>
+
         </form>
-        <div className="sing-up" onClick={handleSignUp}>
-          <p>Buyer create account</p>
-          <p>Sign Up</p>
+        <div className="sign-up" onClick={handleSignUp}>
+          <p>Don't have an account?</p>
+          <p className="blue-sign">Sign Up</p>
         </div>
     
         {/* <div className="sing-up" onClick={handleSignUpVendor}>

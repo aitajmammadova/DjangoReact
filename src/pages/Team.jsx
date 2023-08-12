@@ -29,8 +29,9 @@ function Team() {
                                     <div className="about_expert_infoss">
                                         <h4 className="h4">{a.profession}</h4>
                                         <div className="about_info_i">
-                                            <a href="https://www.facebook.com/"><img src="static/facebook.png"></img></a>
-                                            <a href="https://twitter.com/"><img src="static/twitter.png"></img></a>
+                                            {a.facebook && <a href={a.facebook}><img src="/static/facebook.png" alt="Facebook"></img></a>}
+                                            {a.twitter && <a href={a.twitter}><img src="/static/twitter.png" alt="Twitter"></img></a>}
+                                            {a.instagram && <a href={a.instagram}><img src="/static/Insta.png" alt="Instagram"></img></a>}
                                         </div>
                                     </div>
                                 </div>

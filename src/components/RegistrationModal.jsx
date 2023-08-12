@@ -6,9 +6,7 @@ import axios from 'axios'
 import { useState } from "react";
 const RegistrationModal = ({
   handleSignUpExit,
-  setDataFormInput,
-  dataFormInput,
-  setDataForm,
+  handleLogin
 }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -19,13 +17,7 @@ const RegistrationModal = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    // Check if password and passwordConfirm match
-    // if (password !== passwordConfirm) {
-    //   setResponseMessage('Passwords do not match');
-    //   return;
-    // }
-
+ 
     const registrationData = {
       email: email,
       password: password,
@@ -97,13 +89,9 @@ const RegistrationModal = ({
                 placeholder="Confirm Password"
               />
             </div>
-            <div className="login-remember">
-              <input type="checkbox" name="Remember me" id="" />
-              <label htmlFor="">Remember me</label>
-            </div>
           </div>
           <div className="login-button">
-            <button type='submit'>Sign Up</button>
+            <button type='submit' onClick={handleLogin}>Sign Up</button>
           </div>
         </form>
       </div>

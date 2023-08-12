@@ -8,8 +8,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Headerr from "./components/Headerr";
 import Blog from "./pages/Blog";
-import Portfolio from "./pages/Portfolio";
-import Portfolio_single from "./pages/Portfolio_single/";
+ 
 import About from "./pages/About";
 import Blog_single from "./pages/Blog_single/";
 import Contact from "./pages/Contact";
@@ -22,7 +21,9 @@ import { connect } from "react-redux";
 import Team from "./pages/Team";
 import AnimatedCursor from "react-animated-cursor";
 import Delivery from "./pages/Delivery";
-import BlogCreate from "./pages/BlogCreate"
+import BlogCreate from "./pages/BlogCreate";
+import Recipe from './pages/recipe';
+import Recipe_single from './pages/Recipe_single'
 
 function App({ dispatch }) {
   useEffect(() => {
@@ -58,10 +59,10 @@ function App({ dispatch }) {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />}></Route>
         <Route path="/blog" element={<Blog />} />
-        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/recipe" element={<Recipe />} />
         <Route
-          path="/portfolio/portfolio_single/:id"
-          element={<Portfolio_single />}
+          path="/recipe/recipe_single/:id"
+          element={<Recipe_single />}
         />
         <Route path="/blog/blog_single/:id" element={<Blog_single />}></Route>
         <Route path="/shop" element={<Shop />}></Route>
