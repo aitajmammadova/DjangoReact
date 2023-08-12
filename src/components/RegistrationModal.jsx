@@ -6,7 +6,7 @@ import axios from 'axios'
 import { useState } from "react";
 const RegistrationModal = ({
   handleSignUpExit,
-  handleLogin
+   
 }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -47,10 +47,10 @@ const RegistrationModal = ({
       <div className="login-input">
         <form  method='post' onSubmit={handleSubmit}>
           <div className="login-input-head">
-            <div className="org">Buyer Registration</div>
+            <div className="org">Registration</div>
             <div className="login-input-head-title">
               <p>Welcome Back</p>
-              <p>Login in with your email address and password</p>
+              <p className="p login_p">Sign up with your email address and password</p>
             </div>
           </div>
           <div className="login-input-title">
@@ -89,9 +89,11 @@ const RegistrationModal = ({
                 placeholder="Confirm Password"
               />
             </div>
-          </div>
+          
+
           <div className="login-button">
-            <button type='submit' onClick={handleLogin}>Sign Up</button>
+            <button type='submit'>Sign Up</button>
+          </div>
           </div>
         </form>
       </div>

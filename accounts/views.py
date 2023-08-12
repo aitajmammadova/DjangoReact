@@ -29,4 +29,4 @@ def activation_view(request, uuid64, token):
     user.is_active = True
     user.save()
 
-    return HttpResponseRedirect("http://127.0.0.1:8000/") #login sehifesi
+    return HttpResponseRedirect("http://127.0.0.1:8000/access-activation") #login sehifesi

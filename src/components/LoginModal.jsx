@@ -7,16 +7,16 @@ import axios from 'axios';
 const LoginModal = ({
   handleLogin,
   handleSignUp,
-  handleSignUpVendor,
-  dataForm,
-  dataFormVendor,
+ 
 }) => {
+  const [currentUser, setCurrentUser] = useState()
+  const [registrationToggle, setRegistrationToggle] = useState(false)
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+     
     const LoginData = {
       email: email,
       password: password
@@ -29,9 +29,7 @@ const LoginModal = ({
       body: JSON.stringify(LoginData)
     })
       .then(response => response.json())
-      
       .catch(error => {
-
         console.error(error);
       })
   }
@@ -84,7 +82,6 @@ const LoginModal = ({
             <button type="submit">Sign In</button>
           </div>
           
-
         </div>
 
         </form>
@@ -92,7 +89,6 @@ const LoginModal = ({
           <p>Don't have an account?</p>
           <p className="blue-sign">Sign Up</p>
         </div>
-    
         {/* <div className="sing-up" onClick={handleSignUpVendor}>
           <p>Vendor create account</p>
           <p>Sign Up</p>

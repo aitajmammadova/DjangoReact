@@ -212,11 +212,8 @@ REST_FRAMEWORK = {
     )
 }
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+ 
 
-# EMAIL_HOST="smtp.gmail.com"
-EMAIL_HOST_USER="a.mammadzadeh01@gmail.com"
-# EMAIL_HOST_PASSWORD='qizdingxszsetrvv'
 # EMAIL_PORT=465
 # EMAIL_USE_TSL= False
 # EMAIL_USE_SSL= False
@@ -225,3 +222,14 @@ EMAIL_HOST_USER="a.mammadzadeh01@gmail.com"
 # CSRF_COOKIE_NAME = 'csrftoken'
 # CSRF_COOKIE_HTTPONLY = False  # Should be False to allow JavaScript access
 # DEFAULT_FROM_EMAIL = 'gaxaki8020@weishu8.com'
+
+
+#the email settings
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True 
+DEFAULT_FROM_EMAIL = "MY APP!" 
+EMAIL_HOST_USER =  "a.mammadzadeh01@gmail.com"
+EMAIL_HOST_PASSWORD = "uqhgevblhbimrhvw"

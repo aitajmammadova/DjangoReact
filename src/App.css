@@ -3506,3 +3506,29 @@ header {
   padding-top: 20px;
 }
  
+.activate_back{
+  background-image: url(/static/act-back1.jpg);
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 90vh !important;
+  display: flex;
+  justify-content: center;
+  align-items: center ;
+  text-align: center;
+}
+
+.success{
+  color: #68a47f;
+  font-size: 35px;
+  font-weight: bold;
+}
+.activate_back img{
+  margin: 15px 0;
+  width: 120px;
+}
+ 
+.activate_back button{
+  margin: 15px auto;
+  padding: 14px 30px;
+}

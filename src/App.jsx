@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
@@ -23,9 +23,25 @@ import AnimatedCursor from "react-animated-cursor";
 import Delivery from "./pages/Delivery";
 import BlogCreate from "./pages/BlogCreate";
 import Recipe from './pages/recipe';
-import Recipe_single from './pages/Recipe_single'
+import Recipe_single from './pages/Recipe_single';
+import TrueActivation from './pages/TrueActivation';
+import axios from 'axios';
+
+axios.defaults.xsrfCookieName='csrftoken';
+axios.defaults.xsrfHeaderName='X_CSRFToken';
+axios.defaults.withCredentials=true;
+const client=axios.create({
+  baseURL:'http://127.0.0.1:8000'
+})
+
 
 function App({ dispatch }) {
+  const [currentUser,setCurrentUser]=useState()
+  const [registrationToggle, setRegistrationToggle]=useState(false)
+  const [email,setEmail]=useState('')
+  const [username,setUsername]=useState('')
+  const [password,setPassword]=useState('')
+
   useEffect(() => {
     fetch("http://127.0.0.1:8000/shop-product/list/")
       .then((a) => a.json())
@@ -72,6 +88,7 @@ function App({ dispatch }) {
         <Route path="/contact-us" element={<Contact />}></Route>
         <Route path="/team" element={<Team />}></Route>
         <Route path="/delivery" element={<Delivery />}></Route>
+        <Route path="/access-activation" element={<TrueActivation />}></Route>
         <Route path="/blog/create" element={<BlogCreate />}></Route>
         
       </Routes>

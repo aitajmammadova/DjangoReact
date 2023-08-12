@@ -74,7 +74,6 @@ function Header({ basket }) {
   };
 
   const handleLogin = () => {
-    setRegst(false);
     setIsLogin(true);
   };
 
@@ -86,7 +85,7 @@ function Header({ basket }) {
 
   const handleSignUpExit = () => {
     setRegst(false);
-    setRegstVen(false);
+    setIsLogin(false);
   };
 
   const handleSignUp = () => {
