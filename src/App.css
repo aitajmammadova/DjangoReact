@@ -3532,3 +3532,14 @@ header {
   margin: 15px auto;
   padding: 14px 30px;
 }
+
+.regis-succ{
+  font-size: 40px !important;
+  padding: 15px 0 20px;
+  text-align: center;
+}
+
+.registration-success p{
+  padding: 0 25px;
+  text-align: center;
+}
