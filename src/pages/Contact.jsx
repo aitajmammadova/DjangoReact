@@ -61,7 +61,7 @@ function Contact() {
           <div className="find_out_info">
             <div data-aos="fade-up" className="info_item">
               <div className="info_item_icon">
-                <img src="./images/icons/message.png" />
+                <img src="/static/message.png" />
               </div>
               <div className="info_item_text">
                 <h4>Massege</h4>
@@ -71,7 +71,7 @@ function Contact() {
 
             <div data-aos="fade-up" className="info_item">
               <div className="info_item_icon">
-                <img src="./images/icons/phone.png" />
+                <img src="/static/phone.png" />
               </div>
               <div className="info_item_text">
                 <h4>Contact Us</h4>
@@ -81,16 +81,16 @@ function Contact() {
           </div>
           <div data-aos="fade-up" className="contact_social">
             <a href="https://www.facebook.com/">
-              <img src="./images/icons/Fb.png" />
+              <img src="/static/facebook.png" />
             </a>
             <a href="https://twitter.com/">
-              <img src="./images/icons/Twiter.png" />
+              <img src="/static/Twiter.png" />
             </a>
             <a href="https://www.instagram.com/">
-              <img src="./images/icons/Insta.png" />
+              <img src="/static/Insta.png" />
             </a>
             <a href="https://www.pinterest.com/">
-              <img src="./images/icons/Vector (3).png" />
+              <img src="/static/Pintrest.png" />
             </a>
           </div>
         </div>
@@ -108,7 +108,7 @@ function Contact() {
           <div className="location_about">
             <div data-aos="fade-up" className="location_adress">
               <div className="location_icon">
-                <img src="./images/icons/location_icon.png" />
+                <img src="/static/location_icon.png" />
               </div>
               <div className="location_text">
                 <h6 className="adress_title">New York, USA:</h6>
@@ -118,7 +118,7 @@ function Contact() {
 
             <div data-aos="fade-up" className="location_adress">
               <div className="location_icon">
-                <img src="./images/icons/location_icon.png" />
+                <img src="/static/location_icon.png" />
               </div>
               <div className="location_text">
                 <h6 className="adress_title">London, UK:</h6>

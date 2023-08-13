@@ -18,21 +18,21 @@ function Services() {
           <div className="service_product_about">
             <ul className="service_content1">
               <li data-aos="fade-up">
-                <img src="static/icons/service_icon1.svg" />
+                <img src="/static/icons/service_icon1.svg" />
                 <h2>Dairy Products</h2>
                 <p>
                 Organic dairy products,  come from cows that are raised without the use of antibiotics and synthetic growth hormones, and genetically modified organisms (GMOs).
                 </p>
               </li >
               <li data-aos="fade-up">
-                <img src="static/icons/service_icon2.svg" />
+                <img src="/static/icons/service_icon2.svg" />
                 <h2>Store Services</h2>
                 <p>
                 Our store offers a wide variety of organic products, including fresh produce, dairy products, meats, and pantry items, all of which are sourced from local, organic farmers and producers.
                 </p>
               </li>
               <li data-aos="fade-up" >
-                <img src="static/icons/service_icon3.svg" />
+                <img src="/static/icons/service_icon3.svg" />
                 <h2>Delivery Services</h2>
                 <p>
                 Our delivery service provides a convenient way for you to receive your favorite organic products without leaving the comfort of your home.
@@ -40,25 +40,25 @@ function Services() {
               </li>
             </ul>
             <div className="service_image">
-              <img src="static/service_product.png" />
+              <img src="/static/service_product.png" />
             </div>
             <ul className="service_content2">
               <li data-aos="fade-up">
-                <img src="static/icons/service_icon4.svg" />
+                <img src="/static/icons/service_icon4.svg" />
                 <h2>Agricultural Services</h2>
                 <p>
                 Our team of expert agricultural specialists provides personalized support to organic farmers, offering guidance and advice tailored to their specific needs.
                 </p>
               </li>
               <li data-aos="fade-up">
-                <img src="static/icons/service_icon5.svg" />
+                <img src="/static/icons/service_icon5.svg" />
                 <h2>Organic Products</h2>
                 <p>
                 Organic products are grown and processed without the use of synthetic pesticides or other harmful chemicals, making them a healthier choice for both people and the environment.
                 </p>
               </li>
               <li data-aos="fade-up" >
-                <img src="static/icons/service_icon6.svg" />
+                <img src="/static/icons/service_icon6.svg" />
                 <h2>Fresh Vegetables</h2>
                 <p>
                 Fresh vegetables are a key component of a healthy diet, providing essential vitamins, minerals, and fiber to support overall health and well-being.
@@ -85,7 +85,7 @@ function Services() {
           </div>
           <div data-aos="fade-up" className="video_play_btn">
             <a onClick={() => setVideoShown(!videoShown)} className="video_play_circle" >
-              <div className="play_img"> <img src="static/play_btn.svg" /> </div>
+              <div className="play_img"> <img src="/static/play_btn.svg" /> </div>
 
             </a>
           </div>

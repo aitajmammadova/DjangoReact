@@ -7,7 +7,7 @@ function Service_single() {
 
       <section className="service_single_main container">
         <div className="service_single_image">
-          <img src="static/service_single_photo.jpg" />
+          <img src="/static/service_single_photo.jpg" />
         </div>
         <div className="serivice_single_content service_container">
           <div className="service_single_text">
@@ -20,7 +20,7 @@ Our organic store services also offer convenient online ordering and delivery op
           </div>
           <div className="service_single_row">
             <div className="service_single_row_image">
-              <img src="static/service_single_row1.jpg" />
+              <img src="/static/service_single_row1.jpg" />
             </div>
             <div className="service_single_row_text">
               <h4>Why Organic</h4>
@@ -37,7 +37,7 @@ Our organic store services also offer convenient online ordering and delivery op
               </p>
             </div>
             <div className="service_single_row_image">
-              <img src="static/service_single_row2.jpg" />
+              <img src="/static/service_single_row2.jpg" />
             </div>
           </div>
           <div className="service_single_text">

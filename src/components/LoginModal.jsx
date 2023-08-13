@@ -30,7 +30,7 @@ const LoginModal = ({
     })
       .then(response => response.json())
       .catch(error => {
-        console.error(error);
+        console.log(error.JSON)
       })
   }
   return (
