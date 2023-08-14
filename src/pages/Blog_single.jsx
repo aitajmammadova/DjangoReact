@@ -23,7 +23,7 @@ function Blog_single() {
                     <h3>Posted On: <span className="p"> {data.created_at_display}</span></h3>
                         <div className="flex">
                             <i className="fa-solid fa-user"></i>
-                            <p className="p"> {data.farmer}</p>
+                            <p className="p"> {data.writer}</p>
                         </div>
                     </div>
                     <div className="blog_research">
@@ -39,9 +39,9 @@ function Blog_single() {
      <section className="blog_empty"></section>
     <section className="blog_single_second">
         <div className="blog_single_container">
-            
+{/*             
             <h2>{data.title}</h2>
-            <p className="p">{data.context}</p>
+            <p className="p">{data.context}</p> */}
 
             <h2>{data.titlefirst}</h2>
             <p className="p">{data.contextfirst}</p>
@@ -49,8 +49,8 @@ function Blog_single() {
             <h2>{data.titlesecond}</h2>
             <p className="p">{data.contextsecond}</p>
 
-            <h2>{data.titlethird}</h2>
-            <p className="p">{data.contextthird}</p>
+            {/* <h2>{data.titlethird}</h2>
+            <p className="p">{data.contextthird}</p> */}
 
         </div >
     </section >

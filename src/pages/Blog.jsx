@@ -25,9 +25,9 @@ function Blog() {
                             <h2 className="h3">{a.created_at_display}</h2>
                         </div>
                         <div className="blog_prd_absolute">
-                            <div className="user"><h4 className="user"><i className="fa-solid fa-user"></i>By {a.farmer}</h4></div>
+                            <div className="user"><h4 className="user"><i className="fa-solid fa-user"></i>By {a.writer}</h4></div>
                             <h3 className="name">{a.blog_name}</h3>
-                            <p className="p">{a.blog_title}</p>
+                            <p className="p">{a.abstract}</p>
                             <Link to={`/blog/blog_single/${a.id}`}>
                             <h3 className="readmore">Read More
                                 <div className="arrow">
