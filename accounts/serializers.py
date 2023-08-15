@@ -13,6 +13,7 @@ User = get_user_model()
 
 class LoginSerializer(serializers.ModelSerializer):
     email = serializers.EmailField()
+    password = serializers.CharField(write_only=True)
 
     class Meta:
         model = User
@@ -27,31 +28,19 @@ class LoginSerializer(serializers.ModelSerializer):
         email = attrs.get("email")
         password = attrs.get("password")
 
-        user = authenticate(email=email, password=password)
+        if email and password:
+            user = authenticate(request=self.context.get('request'), email=email, password=password)
+            if user is None:
+                raise serializers.ValidationError({"error": "Invalid credentials"})
 
-        if not user:
-            raise serializers.ValidationError({"error": "This user does not exist"})
+            if not user.is_active:
+                raise serializers.ValidationError({"error": "User is not active"})
 
-        if not user.is_active:
-            raise serializers.ValidationError({"error": "This user is not activated"})
+            attrs['user'] = user
+        else:
+            raise serializers.ValidationError({"error": "Both email and password are required"})
 
-        return super().validate(attrs)
-
-
-    def create(self, validated_data):
-        email = validated_data.get("email")
-        password = validated_data.get("password")
-        user = authenticate(email=email, password=password)
-        return user
-
-
-    def to_representation(self, instance):
-        repr_ = super().to_representation(instance)
-        token = RefreshToken.for_user(instance)
-        repr_["token"] = {"refresh": str(token), "access": str(token.access_token)}
-        return repr_
-
-
+        return attrs
 
 
 class RegisterSerializer(serializers.ModelSerializer):
@@ -68,7 +57,6 @@ class RegisterSerializer(serializers.ModelSerializer):
                 "write_only": True
             },
         }
-
 
     def validate(self, attrs):
         email = attrs.get("email")
@@ -89,7 +77,7 @@ class RegisterSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         validated_data.pop("passwordConfirm")
         print(validated_data)
-        user = User.objects.create(
+        user = User.objects.create_user(
             **validated_data, is_active=False
         )
 

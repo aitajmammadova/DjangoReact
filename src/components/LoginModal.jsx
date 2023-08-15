@@ -21,14 +21,10 @@ const LoginModal = ({
     try {
       const response = await axios.post('http://127.0.0.1:8000/api/accounts/login/', { email, password });
       const { access, refresh } = response.data.token;
-
-      // Store the tokens in localStorage or a more secure storage mechanism
+ 
       localStorage.setItem('accessToken', access);
       localStorage.setItem('refreshToken', refresh);
-
-      // Redirect or perform other actions upon successful login
-      // For example, you could redirect to a dashboard page.
-      // window.location.href = '/dashboard';
+ 
     } catch (error) {
       setError('Invalid email or password');
     }
