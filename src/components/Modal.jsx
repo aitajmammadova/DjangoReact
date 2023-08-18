@@ -29,7 +29,7 @@ function Modal({
     });
   };
   return (
-    <div id="myModal" class="modal">
+    <div id="myModal" className="modal">
       <div className="modal_inner">
         <div className="modal_header">
           <h4>Your Cart</h4>
@@ -45,7 +45,7 @@ function Modal({
             return (
               <>
                 <div className="modal_product">
-                  <div class="modal_product_content">
+                  <div className="modal_product_content">
                     <div className="modal_image_about">
                       <div className="modal_product_image">
                         <img src={p?.image} alt="" />

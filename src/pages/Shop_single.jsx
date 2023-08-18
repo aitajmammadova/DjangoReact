@@ -77,7 +77,7 @@ function Shop_single({ basket, dispatch , favorite }) {
               <p>{product.category}</p>
             </div>
             <div onClick={(e) => addToFavoriteBasket(product.id, e)} className="shop_single_product_favorite">
-            <i class="fa-brands fa-gratipay"></i>
+            <i className="fa-brands fa-gratipay"></i>
             </div>
             </div>
             

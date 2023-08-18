@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+from datetime import timedelta
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,26 +39,25 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    #installing
+
+    # installing
     'rest_framework',
     'corsheaders',
-    
+
     # 'fontawesomefree',
     'rest_framework_simplejwt',
-    
-    
-    #api
+
+
+    # api
     'accounts',
     'team',
     'api_recipes',
     'shop',
     'blogs',
-    
+
     'contact',
 
 ]
-
 
 
 DEBUG = True
@@ -64,18 +65,15 @@ DEBUG = True
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    
+    'corsheaders.middleware.CorsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    
     'django.middleware.common.CommonMiddleware',
-    
     'django.middleware.csrf.CsrfViewMiddleware',
-    
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-AUTH_USER_MODEL= "accounts.MyUser"
+AUTH_USER_MODEL = "accounts.MyUser"
 
 ROOT_URLCONF = 'backend.urls'
 
@@ -141,11 +139,20 @@ USE_I18N = True
 USE_TZ = True
 
 
- 
 CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8000",  # Replace with your frontend URL
+    "http://localhost:5173",  # Replace with your frontend URL
 ]
+
+CSRF_TRUSTED_ORIGINS = [
+    "*",
+    "http://localhost:5173",
+]
+
 CORS_ALLOW_HEADERS = [
     'accept',
     'accept-encoding',
@@ -157,52 +164,44 @@ CORS_ALLOW_HEADERS = [
 ]
 
 
-
-import os
-
 STATIC_URL = 'static/'
 
 if DEBUG:
-    STATICFILES_DIRS =[os.path.join(BASE_DIR , "static")]
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 else:
-    STATIC_ROOT = os.path.join(BASE_DIR , "static")
+    STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
- 
- 
+
+
 # Default primary key field type
- 
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-
-
-INTERNAL_IPS=[
+INTERNAL_IPS = [
     'localhost',
     '127.0.0.1',
 ]
 
 
-
-from datetime import timedelta
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_REFRESH_TOKENS': True,
-    'BLACKLIST_AFTER_ROTATION' : True,
+    'BLACKLIST_AFTER_ROTATION': True,
     'ALGORITHM': "HS256",
-    'SIGNING_KEY' : SECRET_KEY,
-    'VERIFYING_KEY' : None,
-    'AUTH_HEADERS_TYPES' : ('JWT',),
-    'USER_ID_FIELDS' : "id",
-    'USER_ID_CLAIM' : "user_id",
-    'AUTH_TOKEN_CLASSES' : ('rest_framework_simplejwt.tokens.AccessToken',),
-    'TOKEN_TYPE_CLAIM' : "token_type",
+    'SIGNING_KEY': SECRET_KEY,
+    'VERIFYING_KEY': None,
+    'AUTH_HEADERS_TYPES': ('JWT',),
+    'USER_ID_FIELDS': "id",
+    'USER_ID_CLAIM': "user_id",
+    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
+    'TOKEN_TYPE_CLAIM': "token_type",
 }
-
 
 
 REST_FRAMEWORK = {
@@ -212,7 +211,6 @@ REST_FRAMEWORK = {
     )
 }
 
- 
 
 # EMAIL_PORT=465
 # EMAIL_USE_TSL= False
@@ -224,12 +222,12 @@ REST_FRAMEWORK = {
 # DEFAULT_FROM_EMAIL = 'gaxaki8020@weishu8.com'
 
 
-#the email settings
+# the email settings
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_USE_TLS = True 
-DEFAULT_FROM_EMAIL = "MY APP!" 
-EMAIL_HOST_USER =  "a.mammadzadeh01@gmail.com"
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = "MY APP!"
+EMAIL_HOST_USER = "a.mammadzadeh01@gmail.com"
 EMAIL_HOST_PASSWORD = "uqhgevblhbimrhvw"

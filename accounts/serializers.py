@@ -95,3 +95,9 @@ class RegisterSerializer(serializers.ModelSerializer):
             fail_silently=False
         )
         return user
+    
+    
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'email']

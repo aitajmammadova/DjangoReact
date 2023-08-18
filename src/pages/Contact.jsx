@@ -1,45 +1,65 @@
 import React, { useReducer, useEffect, useState } from "react";
-
+import Modal from "react-modal";
 
 function Contact() {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        message: ''
-      });
-    
-      const handleChange = (e) => {
-        setFormData({
-          ...formData,
-          [e.target.name]: e.target.value,
-        });
-      };
-      
-      const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-          const response = await fetch('contact/', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-          });
-    
-          const data = await response.json();
-          if (response.ok) {
-            // E-posta gönderimi başarılıysa
-            alert('Teşekkürler! İletişim bilgileriniz kaydedildi.');
-          } else {
-            // E-posta gönderimi başarısızsa
-            alert('Formu göndermek mümkün olmadı: ' + data.error);
-          }
-        } catch (error) {
-          // E-posta gönderme işlemi sırasında bir hata oluştu
-          alert('Formu göndermek mümkün olmadı: ' + error.message);
-        }
-      };
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
 
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalContent, setModalContent] = useState({
+    title: "",
+    message: ""
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const openModal = (title, message) => {
+    setModalContent({ title, message });
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+    setModalContent({
+      title: "",
+      message: ""
+    });
+    setFormData({
+      name: "",
+    email: "",
+    message: ""
+    })
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("contact/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        openModal("Success", "Thank you! Your contact information has been saved.");
+      } else {
+        openModal("Error", "Formu göndermek mümkün olmadı: " + data.error);
+      }
+    } catch (error) {
+      openModal("Error", "Formu göndermek mümkün olmadı: " + error.message);
+    }
+  };
   return (
     <>
       <section className="contact_banner full-container"></section>
@@ -165,28 +185,7 @@ function Contact() {
               />
             </div>
           </div>
-          {/* <div data-aos="fade-up" className="form_row">
-                        <div className="form_form">
-                            <label for="company" className="form_label">Company*</label
-                            ><input
-                                type="email"
-                                className="form_input"
-                                maxlength="256"
-                                placeholder="Enter Company Name"
-                                id="company"
-                            />
-                        </div>
-                        <div className="form_form">
-                            <label for="subject" className="form_label">Subject*</label
-                            ><input
-                                type="text"
-                                className="form_input"
-                                maxlength="256"
-                                placeholder="How We Can Help"
-                                id="subject"
-                            />
-                        </div>
-                    </div> */}
+          
           <div data-aos="fade-up" className="form_message">
             <label htmlFor="message" className="form_label">
               Message
@@ -207,6 +206,16 @@ function Contact() {
           </button>
         </form>
       </section>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Message Modal"
+        className="modal"
+      >
+        <h2>{modalContent.title}</h2>
+        <p>{modalContent.message}</p>
+        <button onClick={closeModal}>Close</button>
+      </Modal>
     </>
   );
 }

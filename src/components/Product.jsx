@@ -44,7 +44,7 @@ function Product({ data , favorite , dispatch}) {
                     
                 </div>
                 <div onClick={(e) => addToFavoriteBasket(data.id, e)} className="shop_product_favorite">
-                    <i class="fa-brands fa-gratipay"></i>
+                    <i className="fa-brands fa-gratipay"></i>
                 </div>
                 </div>
                 

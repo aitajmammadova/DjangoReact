@@ -96,9 +96,9 @@ function Delivery({basket}) {
                             className="input_textarea"
                         ></textarea>
                     </div>
-                    <button onClick={() => setPaymentModalShown(!paymentModalShown)}  class="blue_btn">
+                    <button onClick={() => setPaymentModalShown(!paymentModalShown)}  className="blue_btn">
                         <p>Continue to Payment</p>
-                        <i class="fa-solid fa-circle-arrow-right"></i>
+                        <i className="fa-solid fa-circle-arrow-right"></i>
                     </button>
                 </div>
                 {paymentModalShown && <PaymentModal paymentModalShown={paymentModalShown} setPaymentModalShown={setPaymentModalShown} />}

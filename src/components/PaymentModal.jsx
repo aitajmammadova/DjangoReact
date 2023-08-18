@@ -22,7 +22,7 @@ function PaymentModal({
     });
   };
   return (
-    <div id="myPayModal" class="pay_modal">
+    <div id="myPayModal" className="pay_modal">
       <div className="pay_modal_inner">
         <div className="pay_modal_header">
           <h4>Payment Process</h4>
@@ -89,7 +89,7 @@ function PaymentModal({
                 return (
                   <>
                     <div className="pay_modal_product">
-                      <div class="pay_modal_product_content">
+                      <div className="pay_modal_product_content">
                         <div className="pay_modal_image_about">
                           <div className="pay_modal_product_image">
                             <img src={p?.images} alt="" />

@@ -1,12 +1,14 @@
 import React from 'react';
 import { useEffect, useState } from "react";
-// import loginIcons from "../images/login.jpg";
 import { CiCircleRemove } from "react-icons/ci";
 import axios from 'axios';
+import {  useDispatch } from 'react-redux';
+import { login } from '../store/features/authSlice';
 
 const LoginModal = ({
   handleLogin,
   handleSignUp,
+  handleSignUpExit
  
 }) => {
   const [currentUser, setCurrentUser] = useState()
@@ -14,6 +16,10 @@ const LoginModal = ({
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  
+  const dispatch=useDispatch()
+
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,10 +27,9 @@ const LoginModal = ({
     try {
       const response = await axios.post('http://127.0.0.1:8000/api/accounts/login/', { email, password });
       const { access, refresh } = response.data.token;
- 
       localStorage.setItem('accessToken', access);
       localStorage.setItem('refreshToken', refresh);
- 
+      dispatch(login())
     } catch (error) {
       setError('Invalid email or password');
     }
@@ -93,7 +98,7 @@ const LoginModal = ({
       </div>
         <div className="login-img">
           <img src={"/static/login.jpg"} alt="" />
-          <div onClick={handleLogin}>
+        <div onClick={handleSignUpExit}>
             <CiCircleRemove />
           </div>
 

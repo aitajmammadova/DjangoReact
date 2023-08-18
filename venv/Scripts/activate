@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\LENOVO\Desktop\DjangoReact\venv"
+VIRTUAL_ENV="C:\Users\Jahana Sultan\OneDrive\Desktop\organic-17.08\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

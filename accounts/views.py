@@ -12,6 +12,9 @@ from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.views import APIView
+from .serializers import UserSerializer
 
 User = get_user_model()
 
@@ -52,3 +55,13 @@ def activation_view(request, uuid64, token):
     user.save()
 
     return HttpResponseRedirect("http://127.0.0.1:8000/access-activation") #login sehifesi
+
+
+
+class UserDataView(APIView):
+    permission_classes = [IsAuthenticated]  # Kullanıcı giriş yapmış olmalıdır.
+
+    def get(self, request, format=None):
+        user = request.user  # Mevcut kullanıcıyı alır
+        serializer = UserSerializer(user)
+        return Response(serializer.data)
