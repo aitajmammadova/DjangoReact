@@ -702,6 +702,10 @@ body {
 .blog_single_second {
   margin: 0 auto;
 }
+.blog_single_second img{
+  width: 80%;
+  text-align: center;
+}
 
 .blog_single_ul_circle li {
   list-style: disc;
@@ -3702,6 +3706,8 @@ header {
   border: 2px solid #68a47f;
   z-index: 99;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   transition: 1s;
   top: 0;
   right: 0;
@@ -3733,7 +3739,6 @@ header {
   padding: 55px 15px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   font-size: 20px;
 }
 .user-modal div{
@@ -3743,4 +3748,38 @@ header {
   position: absolute ;
   top: 15px;
   left: 15px;
+}
+
+.user-modal hr{
+  margin: 10px 0;
+  width: 80%;
+  border: 1px solid rgb(216, 206, 206);
+}
+.first-info-user{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user-modal ul{
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  
+}
+.user-modal li{
+  color: white;
+  padding: 10px 5px;
+  border-bottom: 1px solid rgb(216, 206, 206);
+}
+.user-modal li:hover{
+  background-color: #68a47f;
+}
+.logout-user{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logout-user .blue_btn{
+  padding: 12px 20px !important;
+  font-size: 16px !important;
 }

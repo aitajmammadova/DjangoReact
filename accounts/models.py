@@ -27,8 +27,9 @@ class MyUserManager(BaseUserManager):
 
 class MyUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True, max_length=120)
-    fullname = models.CharField(max_length=40, blank=True, null=True)
-
+    name = models.CharField(max_length=40, blank=True, null=True)
+    surname=models.CharField(max_length=40, blank=True, null=True)
+    image=models.ImageField(blank=True,null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)

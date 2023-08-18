@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { CiCircleRemove } from "react-icons/ci";
 import React from "react";
  

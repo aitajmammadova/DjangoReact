@@ -48,9 +48,34 @@ function Blog_single() {
                    
             <h2>{data.titlesecond}</h2>
             <p className="p">{data.contextsecond}</p>
+            {data.addition_image?(
+                <img src={data.addition_image}></img>
+            ):
+            (
+                <></>
+            )
+        }
 
-            {/* <h2>{data.titlethird}</h2>
-            <p className="p">{data.contextthird}</p> */}
+            {data.titlethird ? (
+                <>
+            <h2>{data.titlethird}</h2>
+            <p className="p">{data.contextthird}</p>
+                {data.titlefourth?(
+                    <>
+                    <h2>{data.titlefourth}</h2>
+            <p className="p">{data.contextfourth}</p>
+                    </>
+                ):
+                (<></>)
+                }
+
+            </>
+            ):
+            (
+                <></>
+            )
+            }
+             
 
         </div >
     </section >

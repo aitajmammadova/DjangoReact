@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { CiCircleRemove } from "react-icons/ci";
 import axios from 'axios';
 import {  useDispatch } from 'react-redux';
@@ -11,8 +11,6 @@ const LoginModal = ({
   handleSignUpExit
  
 }) => {
-  const [currentUser, setCurrentUser] = useState()
-  const [registrationToggle, setRegistrationToggle] = useState(false)
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
