@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { logout } from '../store/features/authSlice'
 import { NavLink , Link} from "react-router-dom";
 import FavoriteModal from './FavoriteModal';
+import { useState } from 'react';
 
 const UserModal = ({
     currentUser,
@@ -17,13 +18,15 @@ const UserModal = ({
         dispatch(logout());
 
     };
+     
+
 
 
     return (
         <div className="user-modal">
 
             <div className='i' onClick={handleUserExit}>
-                <i class="fa-solid fa-xmark"></i>
+                <i className="fa-solid fa-xmark"></i>
             </div>
 
             <div className="first-info-user">
@@ -39,6 +42,7 @@ const UserModal = ({
 
             <div>
                 <ul>
+                    <li onClick={handleUserExit}><Link to="/info">Your information</Link></li>
                     <li onClick={handleUserExit}><Link to={FavoriteModal}>Your favorites</Link></li>
                     <li onClick={handleUserExit}><Link to="/blog">Your blogs</Link></li>
                     <li onClick={handleUserExit}><Link to="/recipe">Your recipes</Link></li>

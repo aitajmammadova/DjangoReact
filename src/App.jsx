@@ -23,6 +23,7 @@ import BlogCreate from "./pages/BlogCreate";
 import Recipe from "./pages/recipe";
 import Recipe_single from "./pages/Recipe_single";
 import TrueActivation from "./pages/TrueActivation";
+import Info from "./pages/Info";
 import axios from "axios";
 
  
@@ -101,6 +102,7 @@ function App({ dispatch }) {
         <Route path="/delivery" element={<Delivery />}></Route>
         <Route path="/access-activation" element={<TrueActivation />}></Route>
         <Route path="/blog/create" element={<BlogCreate />}></Route>
+        <Route path="/info" element={<Info/>}></Route>
       </Routes>
       {pathname !== "/not-found" && <Footer />}
 

@@ -30,13 +30,12 @@ const RegistrationModal = ({
     })
       .then(response => response.json())
       .then(data => {
-        // Handle API response (success or error)
-         
+        
         setRegistrationSuccess(true);
         setImage('/static/check-email.jpg')
       })
       .catch(error => {
-        // Handle error
+       
         console.error('Registration error:', error);
         setRegistrationSuccess(false)
       });
@@ -46,14 +45,14 @@ const RegistrationModal = ({
   return (
     <div className="login-wrapper">
       <div className="login-input">
-        {registrationSuccess ? ( // If registration was successful
+        {registrationSuccess ? (  
         
           <div className="registration-success">
             <h2 className="h4 regis-succ">Email Confirmation.</h2>
             <p className="p">Thank you for signing up with Organick! We hope you'll enjoy your shopping with us.<br></br>Check your email, please. We've sent a message.</p>
            
           </div>
-        ) : ( // If registration form is still being shown
+        ) : (  
           <form method="post" onSubmit={handleSubmit}>
           
             <div className="login-input-head">
