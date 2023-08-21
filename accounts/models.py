@@ -29,7 +29,7 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True, max_length=120)
     name = models.CharField(max_length=40, blank=True, null=True)
     surname=models.CharField(max_length=40, blank=True, null=True)
-    image=models.ImageField(blank=True,null=True)
+    image=models.ImageField(upload_to='media/',blank=True,null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)

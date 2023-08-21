@@ -14,6 +14,9 @@ body {
   margin: 0 auto;
   color: white;
 }
+#stars_color {
+  color: rgba(248, 213, 17, 0.949);
+}
 .App {
   z-index: 99999;
 }
@@ -495,14 +498,14 @@ body {
   align-items: center;
   object-fit: cover;
 }
-.portfolio_first p {
+.portfolio_first p, .info_first p {
   font-size: 70px;
   font-style: bold;
   font-weight: 900;
   color: #274c58;
   font-family: "Roboto";
 }
-.portfolio_second {
+.portfolio_second, .info_second {
   padding: 100px;
 }
 .portfolio_second_products {
@@ -526,9 +529,11 @@ body {
   font-size: 30px;
   color: #274c58;
 }
+
 .portfolio_for_before {
   width: 100%;
 }
+
 .portfolio_for_before:hover::before {
   content: "";
   height: calc(100% - 70px);
@@ -545,8 +550,8 @@ body {
   background-position: center;
   cursor: pointer;
   transition: 0.4s;
- 
 }
+
 /* Portfolio */
 
 /*................................ Blog.................................*/
@@ -564,7 +569,7 @@ body {
 }
 .blog_begin_create {
   position: relative;
-  height: 50vh; 
+  height: 50vh;
   background-image: url(/static/blog_banner_create.png);
   background-position: 50% 50%;
   background-size: cover;
@@ -702,7 +707,7 @@ body {
 .blog_single_second {
   margin: 0 auto;
 }
-.blog_single_second img{
+.blog_single_second img {
   width: 80%;
   text-align: center;
 }
@@ -1267,6 +1272,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 50px;
 }
 
 .form_form {
@@ -1278,7 +1284,7 @@ a {
 }
 
 .form_label {
- 
+  padding-left: 20px;
   margin-bottom: 20px;
   font-family: Roboto, sans-serif;
   color: #274c5b;
@@ -1313,7 +1319,7 @@ a {
   width: 100%;
   background-color: #ffffff;
 }
-.input_double_textarea{
+.input_double_textarea {
   display: block;
   height: 400px;
   padding-top: 30px;
@@ -1836,9 +1842,10 @@ a {
   --products-per-row: 4;
 } */
 
-  
-
-
+html,
+body {
+  scroll-behavior: smooth;
+}
 .shop_products {
   display: flex;
   justify-content: space-between;
@@ -1847,7 +1854,6 @@ a {
   gap: var(--products-gap);
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
- 
 }
 
 .shop_products a {
@@ -1866,8 +1872,6 @@ a {
       padding: 30px 30px 20px;
       border-radius: 30px;
       background-color: #f9f8f8; */
-
-      
 }
 
 .shop_product_images {
@@ -1988,7 +1992,7 @@ a {
 /* SHOP-SINGLE */
 
 .shop_single_banner {
-  background-image: url(/shop_single_banner.jpg);
+  background-image: url(/static/shop_single_banner.jpg);
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -3305,7 +3309,7 @@ header {
 
 .login-wrapper .login-input {
   width: 45%;
-  padding:40px 30px;
+  padding: 40px 30px;
   /* flex: 1; */
   height: auto;
   background-color: white;
@@ -3326,7 +3330,7 @@ header {
   font-size: 30px;
   font-weight: 500;
   letter-spacing: 3px;
-  
+
   font-family: "Roboto";
   color: #274c5b;
 }
@@ -3354,7 +3358,7 @@ header {
   flex-direction: column;
   gap: 1.55rem;
 }
-.login-input-title label{
+.login-input-title label {
   margin-bottom: 10px;
 }
 /* .blue_sign{
@@ -3390,9 +3394,8 @@ header {
   font-size: 14px;
   font-family: "Roboto";
 }
- 
+
 .login-button button {
-  
   font-size: 16px;
   padding: 15px 45px;
   background-color: #7eb693;
@@ -3410,7 +3413,6 @@ header {
 }
 
 .sign-up {
-  
   display: flex;
   justify-content: space-between;
   gap: 2rem;
@@ -3430,12 +3432,9 @@ header {
   flex-direction: column;
   gap: 5px;
 }
-.login_p{
+.login_p {
   padding: 20px 0;
 }
-
-
-
 
 /* PAGINATION */
 
@@ -3452,7 +3451,8 @@ header {
 
 #pagination li {
   user-select: none;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 400;
   font-size: 25px;
   display: flex;
@@ -3475,7 +3475,7 @@ header {
 }
 
 /* Form Css */
- 
+
 .form_form {
   display: flex;
   flex-direction: column;
@@ -3489,7 +3489,7 @@ header {
   color: #274c5b;
   font-family: "Open Sans", sans-serif;
 }
-.blog_create{
+.blog_create {
   padding: 50px 0;
 }
 .input_form {
@@ -3499,22 +3499,20 @@ header {
   margin-bottom: 20px;
   margin-top: 10px;
   border-radius: 10px;
-
 }
-.textarea{
- 
+.textarea {
   min-height: 300px;
 }
- 
-.image_type{
-  border: 0
+
+.image_type {
+  border: 0;
 }
- 
-.form_space{
+
+.form_space {
   padding-top: 20px;
 }
- 
-.activate_back{
+
+.activate_back {
   background-image: url(/static/act-back1.jpg);
   background-position: 50% 50%;
   background-size: cover;
@@ -3522,32 +3520,32 @@ header {
   height: 90vh !important;
   display: flex;
   justify-content: center;
-  align-items: center ;
+  align-items: center;
   text-align: center;
 }
 
-.success{
+.success {
   color: #68a47f;
   font-size: 35px;
   font-weight: bold;
 }
-.activate_back img{
+.activate_back img {
   margin: 15px 0;
   width: 120px;
 }
- 
-.activate_back button{
+
+.activate_back button {
   margin: 15px auto;
   padding: 14px 30px;
 }
 
-.regis-succ{
+.regis-succ {
   font-size: 40px !important;
   padding: 15px 0 20px;
   text-align: center;
 }
 
-.registration-success p{
+.registration-success p {
   padding: 0 25px;
   text-align: center;
 }
@@ -3563,7 +3561,7 @@ header {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
 } */
-.recipe_products{
+.recipe_products {
   display: flex;
   justify-content: space-between;
   align-items: left;
@@ -3576,7 +3574,7 @@ header {
   max-width: 1600px;
   margin: 0 auto;
 }
-.recipe_products a{
+.recipe_products a {
   background: #f9f8f8;
   background: #fff;
   border-radius: 30px;
@@ -3593,7 +3591,6 @@ header {
       border-radius: 30px;
       background-color: #f9f8f8; */
 }
-
 
 .shop_product_tag p {
   font-family: "Open Sans";
@@ -3620,12 +3617,6 @@ header {
   background: #274c5b;
   border-radius: 8px;
 }
-
-
-
-
-
-
 
 /* Add this CSS to your stylesheets */
 
@@ -3658,7 +3649,8 @@ header {
 /* Style for the modal title */
 .ReactModal__Content h2 {
   font-size: 2rem;
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin-bottom: 10px;
   color: #274c58;
 }
@@ -3690,19 +3682,18 @@ header {
 .ReactModal__Content button i {
   margin-left: 5px;
 }
- 
-.meuser img{
+
+.meuser img {
   height: 45px;
 }
 
-
 /*.................... User Modal............... */
-.user-modal{
+.user-modal {
   position: relative;
   width: 21%;
   height: 100vh;
   position: fixed;
-  background-color:#9eb9a8;
+  background-color: #9eb9a8;
   border: 2px solid #68a47f;
   z-index: 99;
   display: flex;
@@ -3714,7 +3705,7 @@ header {
   animation: mymove ease 1s;
 }
 
-@keyframes mymove{
+@keyframes mymove {
   from {
     top: -220px;
   }
@@ -3723,63 +3714,77 @@ header {
     right: 0;
   }
 }
-.user-img{
+.user-img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
   background-color: red;
 }
-.user-img img{
+.user-img img {
   border-radius: 50%;
   width: 100%;
   height: 100%;
   image-orientation: inherit;
 }
-.user-modal{
+.user-modal {
   padding: 55px 15px;
   display: flex;
   flex-direction: column;
   font-size: 20px;
 }
-.user-modal div{
+.user-modal div {
   margin-bottom: 20px;
 }
-.user-modal .i{
-  position: absolute ;
+.user-modal .i {
+  position: absolute;
   top: 15px;
   left: 15px;
 }
 
-.user-modal hr{
+.user-modal hr {
   margin: 10px 0;
   width: 80%;
   border: 1px solid rgb(216, 206, 206);
 }
-.first-info-user{
+.first-info-user {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.user-modal ul{
+.user-modal ul {
   display: flex;
   flex-direction: column;
   margin: 20px;
-  
 }
-.user-modal li{
+.user-modal li {
   color: white;
   padding: 10px 5px;
   border-bottom: 1px solid rgb(216, 206, 206);
 }
-.user-modal li:hover{
+.user-modal li:hover {
   background-color: #68a47f;
 }
-.logout-user{
+.logout-user {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.logout-user .blue_btn{
+.logout-user .blue_btn {
   padding: 12px 20px !important;
   font-size: 16px !important;
+}
+
+.info_first{
+  position: relative;
+  height: 50vh;
+  background-image: url(/static/info_first.jpg);
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login_second .login-input-title div, .login_second .surname{
+  margin: 15px 0 30px ; 
 }

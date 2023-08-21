@@ -9,5 +9,6 @@ urlpatterns = [
     path("me/", views.UserDataView.as_view(), name="me"),
     path("activation/<uuid64>/<token>/", views.activation_view, name="activation"),
     path("csrf/", views.RegisterView.as_view(), name="register"),
+    path("infos/", views.UpdateUserProfile.as_view(),name="infos")
 
 ]

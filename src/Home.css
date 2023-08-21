@@ -293,27 +293,26 @@
     gap: 50px;
   }
   
-  :root {
+  /* :root {
     --products-gap: 20px;
     --products-per-row: 4;
-  }
+  } */
   
   .home_products {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--products-gap);
     
+    gap: 30px;
+    
+    display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
   }
   
   .home_products a {
     background: #f9f8f8;
     border-radius: 30px;
-    width: calc(
+    /* width: calc(
       100% / var(--products-per-row) -
         (var(--products-gap) - var(--products-gap) / var(--products-per-row))
-    );
+    ); */
     overflow: hidden;
     position: relative;
     padding: 20px;

@@ -54,7 +54,7 @@ function Shop() {
 
   return (
     <section className="shop_bigsection_bg">
-      <section className="shop_banner full-container"></section>
+      <section className="shop_banner full-container"><h1 className="shop_single_title">Shop</h1></section>
       <section className="shop_main container">
         <div className="all_filters_section">
           <div className="category_filters">

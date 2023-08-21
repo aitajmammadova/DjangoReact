@@ -8,6 +8,7 @@ class ShopProduct(models.Model):
     oldprice=models.FloatField(max_length=250)
     newprice=models.FloatField(max_length=250)
     calories=models.FloatField(max_length=250)
+    rating=models.FloatField(max_length=25)
     text=models.TextField(max_length=550 , default='')
     description_text=models.TextField(max_length=550)
     additional_text=models.TextField(blank=True,null=True)

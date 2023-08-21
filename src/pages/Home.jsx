@@ -209,7 +209,7 @@ function Home() {
             <div className="circle">
               <div className="circle_white_border"></div>
               <div className="home_static_content">
-                <h2>285</h2>
+                <h2>35</h2>
                 <p>Active Product</p>
               </div>
             </div>

@@ -4,15 +4,14 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Modal from "../components/Modal";
 import FavoriteModal from "../components/FavoriteModal";
-import { connect, useSelector } from "react-redux";
+import { connect } from "react-redux";
 // import user from "../images/user.gif";
 import LoginModal from "./LoginModal";
 import RegistrationModal from "./RegistrationModal";
 import SecondresgistrationModal from "./SecondresgistrationModal";
 import UserModal from "./UserModal";
- 
 
-function Header({ basket }) {
+function Header({ basket, user,dispatch }) {
   const [menuShown, setMenuShown] = useState(false);
   const [modalShown, setModalShown] = useState(false);
   const [favoriteModalShown, setFavoriteModalShown] = useState(false);
@@ -25,7 +24,6 @@ function Header({ basket }) {
   const [item, setItem] = useState("");
   const [filter, setFilter] = useState("");
   const [searchValue, setSearchValue] = useState("");
-  const [currentUser, setCurrentUser] = useState({});
   const [dataFormInput, setDataFormInput] = useState({
     name: "",
     username: "",
@@ -45,34 +43,38 @@ function Header({ basket }) {
   const { pathname } = useLocation();
 
   const nav = useNavigate();
- 
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response1 = await fetch('http://127.0.0.1:8000/shop-product/list/');
+        const response1 = await fetch(
+          "http://127.0.0.1:8000/shop-product/list/"
+        );
         const data = await response1.json();
         setData(data);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     };
     fetchData();
-  }, [])
+  }, []);
 
   let f = data.filter((a) =>
     a.name.toLowerCase().includes(filter.toLowerCase())
   );
 
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  if (isAuthenticated) {
-    useEffect(() => {
-      fetch("http://127.0.0.1:8000/api/accounts/me/", {
-        headers: { Authorization: `Bearer ${localStorage["accessToken"]}` },
-      })
-        .then((response) => response.json())
-        .then((data) => setCurrentUser(data));
-    }, []);
-    }
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/api/accounts/me/", {
+      headers: { Authorization: `Bearer ${localStorage["accessToken"]}` },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch({
+          type: "SET_USER",
+          payload: data,
+        });
+      });
+  }, []);
   const handleChange = (e) => {
     setFilter(e);
     setSearchValue(e);
@@ -101,26 +103,25 @@ function Header({ basket }) {
   };
 
   const handleSignUp = () => {
- 
     setRegst(true);
     setIsLogin(false);
   };
 
   useEffect(() => {
-    setMenuShown(false)
+    setMenuShown(false);
     // setSearchValue("")
     setFilter("");
   }, [pathname]);
   return (
     <>
-      <header  className="">
+      <header className="">
         <div className="header ">
           <div className="header_main">
             <div className="logo_menu">
               <a href="#" className="header_logo">
                 <img src="/static/organic_logo.svg" />
               </a>
-               
+
               <input type="checkbox" id="menu_bar_input" />
               <ul className="menu">
                 <li>
@@ -204,28 +205,28 @@ function Header({ basket }) {
                   <i className="fa fa-solid  fa-heart"></i>
                 </a>
               </div>
-              {isAuthenticated ? (
+              {user.email ? (
                 <div className="meuser" onClick={handleUser}>
-                  <img onClick={handleUser} src="/static/default_logo_user.jpg"></img>
-                </div>
-         
-              ) : (
-                  <div className = "login_icon" onClick = { handleLogin }>
                   <img
-                    width = { 50 }
-                    height = { 50 }
-                    style = {{ marginLeft: "5px" }}
-              src={"/static/user.gif"}
-              alt=""
+                    onClick={handleUser}
+                    src="/static/default_logo_user.jpg"
+                  ></img>
+                </div>
+              ) : (
+                <div className="login_icon" onClick={handleLogin}>
+                  <img
+                    width={50}
+                    height={50}
+                    style={{ marginLeft: "5px" }}
+                    src={"/static/user.gif"}
+                    alt=""
                   />
-            </div>
+                </div>
               )}
-               
 
               <label className="hamburger_menu_icon" htmlFor="menu_bar_input">
                 <i className="fa-solid fa-bars"></i>
               </label>
-
             </div>
           </div>
         </div>
@@ -241,7 +242,7 @@ function Header({ basket }) {
       {modalShown && (
         <Modal modalShown={modalShown} setModalShown={setModalShown} />
       )}
-      
+
       {isLogin && (
         <LoginModal
           handleLogin={handleLogin}
@@ -250,14 +251,13 @@ function Header({ basket }) {
           handleUser={handleUser}
         />
       )}
-      {lookUser && isAuthenticated && (
+      {lookUser && user.email && (
         <UserModal
           handleUserExit={handleUserExit}
-          currentUser={currentUser}
+
           handleUser={handleUser}
           handleSignUp={handleSignUp}
           handleSignUpExit={handleSignUpExit}
-          
         />
       )}
       {regst && (

@@ -5,11 +5,17 @@ from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.utils.encoding import smart_str, smart_bytes
 from django.utils.http import urlsafe_base64_encode
 from django.conf import settings
-
+ 
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+  
 
 
 User = get_user_model()
 
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['name', 'surname', 'image'] 
 
 class LoginSerializer(serializers.ModelSerializer):
     email = serializers.EmailField()

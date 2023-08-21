@@ -1,5 +1,5 @@
 from django.shortcuts import HttpResponseRedirect, HttpResponse
-from rest_framework import generics
+from rest_framework import generics, status
 from .serializers import LoginSerializer
 from .serializers import RegisterSerializer
 from django.contrib.auth import get_user_model
@@ -13,10 +13,24 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
-from .serializers import UserSerializer
+from .serializers import UserSerializer, UserProfileSerializer
+ 
 
 User = get_user_model()
+ 
+ 
+class UpdateUserProfile(APIView):
+    permission_classes = [IsAuthenticated]
 
+    def post(self, request, *args, **kwargs):
+        user = request.user
+        serializer = UserProfileSerializer(user, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    
 @csrf_exempt
 def login_view(request):
     # Your login logic

@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Product from "../components/Product";
+import Rating from "../components/Rating"
 import { connect } from "react-redux";
 function Shop_single({ basket, dispatch , favorite }) {
   const [products, setProducts] = useState([]);
@@ -89,7 +90,7 @@ function Shop_single({ basket, dispatch , favorite }) {
             <a className="shop_single_product_name">{product.name}</a>
             <div className="shop_single_product_pricing_rating">
               <div className="shop_single_product_rating">
-                <img src="static/stars.svg" />
+              <Rating value={product.rating} />
               </div>
               <div className="shop_single_product_pricing">
                 <div className="shop_single_old_price">${product.oldprice}</div>
