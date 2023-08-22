@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { CiCircleRemove } from "react-icons/ci";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 const LoginModal = ({ handleSignUp, handleSignUpExit, dispatch }) => {
   const [email, setEmail] = useState("");
@@ -27,21 +28,8 @@ const LoginModal = ({ handleSignUp, handleSignUpExit, dispatch }) => {
           payload: a,
         });
       });
-    // try {
-    //   const response = await axios.post(
-    //     "http://127.0.0.1:8000/api/accounts/login/",
-    //     { email, password }
-    //   );
-    //   const { access, refresh } = response.data.token;
-    //   localStorage.setItem("accessToken", access);
-    //   localStorage.setItem("refreshToken", refresh);
-    //   dispatch({
-    //     type: "SET_USER",
-    //     payload: response.data,
-    //   });
-    // } catch (error) {
-    //   setError("Invalid email or password");
-    // }
+ 
+ 
   };
   return (
     <div className="login-wrapper">
@@ -77,7 +65,7 @@ const LoginModal = ({ handleSignUp, handleSignUpExit, dispatch }) => {
                 onChange={(e) => setPassword(e.target.value)}
                 name="password"
                 value={password}
-                type="text"
+                type="password"
                 placeholder="Password"
                 required
               />
@@ -91,7 +79,10 @@ const LoginModal = ({ handleSignUp, handleSignUpExit, dispatch }) => {
             </div>
 
             <div className="login-button">
-              <button type="submit">Sign In</button>
+           
+              <button type="submit" >Sign In</button>
+    
+
             </div>
           </div>
         </form>
@@ -99,10 +90,7 @@ const LoginModal = ({ handleSignUp, handleSignUpExit, dispatch }) => {
           <p>Don't have an account?</p>
           <p className="blue-sign">Sign Up</p>
         </div>
-        {/* <div className="sing-up" onClick={handleSignUpVendor}>
-          <p>Vendor create account</p>
-          <p>Sign Up</p>
-        </div> */}
+        
       </div>
       <div className="login-img">
         <img src={"/static/login.jpg"} alt="" />

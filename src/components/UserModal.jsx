@@ -19,8 +19,14 @@ const UserModal = ({ user, handleUserExit, dispatch }) => {
       </div>
 
       <div className="first-info-user">
+        
         <div className="user-img">
-          <img src={user.image}></img>
+          {user.image?(
+            <img src={user.image}></img>
+          ):(
+              <img src="/static/default_logo_user.jpg"></img>
+          )}
+           
         </div>
         <div>
           <p>{user.name} {user.surname}</p>

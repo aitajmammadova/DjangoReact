@@ -19,7 +19,6 @@ function Header({ basket, user,dispatch }) {
   const [isLogin, setIsLogin] = useState(false);
   const [lookUser, setLookUser] = useState(false);
   const [regst, setRegst] = useState(false);
-  const [regstVen, setRegstVen] = useState(false);
   const [data, setData] = useState([]);
   const [item, setItem] = useState("");
   const [filter, setFilter] = useState("");
@@ -207,10 +206,19 @@ function Header({ basket, user,dispatch }) {
               </div>
               {user.email ? (
                 <div className="meuser" onClick={handleUser}>
-                  <img
-                    onClick={handleUser}
-                    src="/static/default_logo_user.jpg"
-                  ></img>
+                  {user.image?(
+                    <img
+                      onClick={handleUser}
+                      src={user.image}
+                    ></img>
+
+                  ):(
+                      <img
+                        onClick={handleUser}
+                        src="/static/default_logo_user.jpg"
+                      ></img>
+                  )}
+                   
                 </div>
               ) : (
                 <div className="login_icon" onClick={handleLogin}>
@@ -268,16 +276,7 @@ function Header({ basket, user,dispatch }) {
           setDataForm={setDataForm}
         />
       )}
-      {regstVen && (
-        <SecondresgistrationModal
-          setDataFormVendor={setDataFormVendor}
-          dataFormVendor={dataFormVendor}
-          dataForm={dataForm}
-          setDataFormInputVendor={setDataFormInputVendor}
-          handleSignUpExit={handleSignUpExit}
-          dataFormInputVendor={dataFormInputVendor}
-        />
-      )}
+  
     </>
   );
 }
