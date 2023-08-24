@@ -25,7 +25,7 @@ function Footer() {
                       <ul className="footer_contact_ul">
                           <li>
                               <h3>Email</h3>
-                              <a href="mailto:needhelp@Organia.com">needhelp@Organia.com</a>
+                              <a href="mailto:organickfood@gmail.com">organickfood@gmail.com</a>
                           </li>
                           <li>
                               <h3>Phone</h3>

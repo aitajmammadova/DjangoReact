@@ -38,7 +38,7 @@ function Info() {
   return (
     <>
       <section className="info_first full-container">
-        <p>Infos</p>
+        <p>Profile</p>
       </section>
       <section className="info_second container">
 

@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'api_recipes',
     'shop',
     'blogs',
-
+'delivery',
     'contact',
 
 ]

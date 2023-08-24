@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import React from 'react';
 import { useState, useEffect } from "react"
-import Blog_single from "./Blog_single"
+ 
 function Blog() {
     const [data, setData] = useState([])
     useEffect(() => {

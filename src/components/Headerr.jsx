@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import Modal from "../components/Modal";
+import ModalProducts from "../components/ModalProducts";
 import FavoriteModal from "../components/FavoriteModal";
 import { connect } from "react-redux";
 // import user from "../images/user.gif";
@@ -126,26 +126,15 @@ function Header({ basket, user,dispatch }) {
                 <li>
                   <NavLink to="/">Home</NavLink>
                 </li>
-                <li>
-                  <NavLink to="/about">About Us</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/shop">Shop</NavLink>
-                </li>
                 <li className="has_dropdown">
                   <a>
-                    Pages<i className="fa-solid fa-chevron-down"></i>
+                    About us<i className="fa-solid fa-chevron-down"></i>
                   </a>
                   <ul className="dropdown">
                     <li>
                       <NavLink to="/services">Services</NavLink>
                     </li>
-                    <li>
-                      <NavLink to="/service-single">Service Single</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/recipe">Recipes</NavLink>
-                    </li>
+
                     <li>
                       <NavLink to="/team">Our Team</NavLink>
                     </li>
@@ -154,6 +143,13 @@ function Header({ basket, user,dispatch }) {
                     </li>
                   </ul>
                 </li>
+                <li>
+                  <NavLink to="/recipe">Recipe</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/shop">Shop</NavLink>
+                </li>
+                
                 <li>
                   <NavLink to="/contact-us">Contact Us</NavLink>
                 </li>
@@ -248,7 +244,7 @@ function Header({ basket, user,dispatch }) {
       )}
 
       {modalShown && (
-        <Modal modalShown={modalShown} setModalShown={setModalShown} />
+        <ModalProducts modalShown={modalShown} setModalShown={setModalShown} />
       )}
 
       {isLogin && (

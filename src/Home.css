@@ -268,6 +268,11 @@
   }
   
   /* HOME PRODUCTS */
+  .container_home_product{
+    width: 80%;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
   .home_our_products {
     display: flex;
     justify-content: center;
@@ -440,7 +445,7 @@
     /* margin-top: 100px; */
     padding-top: 100px;
     padding-bottom: 120px;
-    background-image: url(/customer-background.jpg);
+    background-image: url(static/customer-background.jpg);
     background-position: 50% 50%;
     background-size: cover;
     background-repeat: no-repeat;

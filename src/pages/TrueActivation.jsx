@@ -16,6 +16,7 @@ function TrueActivation() {
 
     const handleSignUpExit = () => {
         setRegst(false);
+        setIsLogin(false);
     
     };
     return (
@@ -27,6 +28,7 @@ function TrueActivation() {
                     <img src="/static/7success.gif" ></img>
                     <button className="blue_btn" onClick={handleLogin}>
                         <p className="p">Login now</p>
+
                     </button>
                 </div>
             </section>
@@ -34,6 +36,7 @@ function TrueActivation() {
                 <LoginModal
                     handleLogin={handleLogin}
                     handleSignUp={handleSignUp}
+                    handleSignUpExit={handleSignUpExit}
                 />
             )}
             {regst && (

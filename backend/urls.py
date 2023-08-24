@@ -10,6 +10,7 @@ urlpatterns = [
     path('api/accounts/', include("accounts.urls")),
     path("", TemplateView.as_view(template_name="base.html")),
     path("",include('contact.urls')),
+    path("",include('delivery.urls')),
     path('recipes/',include("api_recipes.urls")),
     path('shop-product/',include("shop.urls")),
     path('blogs/',include("blogs.urls")),

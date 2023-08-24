@@ -85,7 +85,7 @@ function Contact() {
               </div>
               <div className="info_item_text">
                 <h4>Massege</h4>
-                <a href="#">support@organic.com</a>
+                <a href="mailto:organickfood@gmail.com">organickfood@gmail.com</a>
               </div>
             </div>
 
@@ -95,7 +95,7 @@ function Contact() {
               </div>
               <div className="info_item_text">
                 <h4>Contact Us</h4>
-                <a href="#">+01 123 456 789</a>
+                <a href="tel:666 888 888">666 888 888</a>
               </div>
             </div>
           </div>
@@ -132,7 +132,7 @@ function Contact() {
               </div>
               <div className="location_text">
                 <h6 className="adress_title">New York, USA:</h6>
-                <p>299 Park Avenue New York, New York 10171</p>
+                <a href="https://yandex.ru/maps/?ll=-120.373962%2C38.548978&pt=-120.3774722%2C38.54440556&source=entity_search&z=13.41">299 Park Avenue New York, New York 10171</a>
               </div>
             </div>
 
@@ -142,7 +142,7 @@ function Contact() {
               </div>
               <div className="location_text">
                 <h6 className="adress_title">London, UK:</h6>
-                <p>30 Stamford Street, London SE1 9LQ</p>
+                <a href="https://yandex.ru/maps/?ll=-120.373962%2C38.548978&pt=-120.3774722%2C38.54440556&source=entity_search&z=13.41">30 Stamford Street, London SE1 9LQ</a>
               </div>
             </div>
           </div>

@@ -2,7 +2,10 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import FavoriteModal from "./FavoriteModal";
 import { connect } from "react-redux";
+import { useState, useEffect } from "react";
+
 const UserModal = ({ user, handleUserExit, dispatch }) => {
+  const [favoriteModalShown, setFavoriteModalShown] = useState(false);
   const handleLogout = () => {
     dispatch({
       type: "SET_USER",
@@ -40,7 +43,7 @@ const UserModal = ({ user, handleUserExit, dispatch }) => {
             <Link to="/info">Your information</Link>
           </li>
           <li onClick={handleUserExit}>
-            <Link to={FavoriteModal}>Your favorites</Link>
+            <Link onClick={FavoriteModal}>Your favorites</Link>
           </li>
           <li onClick={handleUserExit}>
             <Link to="/blog">Your blogs</Link>
@@ -63,6 +66,12 @@ const UserModal = ({ user, handleUserExit, dispatch }) => {
           <p>Log Out</p>
         </button>
       </div>
+      {favoriteModalShown && (
+        <FavoriteModal
+          favoriteModalShown={favoriteModalShown}
+          setFavoriteModalShown={setFavoriteModalShown}
+        />
+      )}
     </div>
   );
 };

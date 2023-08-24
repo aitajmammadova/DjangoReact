@@ -4,6 +4,7 @@ import { CiCircleRemove } from "react-icons/ci";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
+
 const LoginModal = ({ handleSignUp, handleSignUpExit, dispatch }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -79,9 +80,9 @@ const LoginModal = ({ handleSignUp, handleSignUpExit, dispatch }) => {
             </div>
 
             <div className="login-button">
-           
+ 
               <button type="submit" >Sign In</button>
-    
+           
 
             </div>
           </div>

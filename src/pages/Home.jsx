@@ -117,7 +117,7 @@ function Home() {
       </section>
 
       <section data-aos="fade-up" className="home_our_products ">
-        <div className="container">
+        <div className="container_home_product">
         <div className="home_title">
           <h5>Categories</h5>
           <h3>Our Products</h3>
