@@ -17,7 +17,7 @@ function Shop() {
   const [minCalories, setMinCalories] = useState(0);
   const [maxCalories, setMaxCalories] = useState(1000);
   const [page, setPage] = useState(1);
-  const itemPerPage = 8;
+  const itemPerPage = 12;
 
   // const [activePage, setActivePage] = useState(1);
   // const productPerPage = 4;
@@ -64,6 +64,9 @@ function Shop() {
             <button onClick={() => setCat("Health")}>Health</button>
             <button onClick={() => setCat("Nuts")}>Nuts</button>
             <button onClick={() => setCat("Millets")}>Millets</button>
+            <button onClick={() => setCat("Meat")}>Meat</button>
+            <button onClick={() => setCat("Grains")}>Grains</button>
+            <button onClick={() => setCat("Fluid")}>Fluid</button>
           </div>
 
           <div className="filter_select">

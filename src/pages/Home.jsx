@@ -19,6 +19,12 @@ function Home() {
       .then((a) => a.json())
       .then((a) => setProducts(a));
   }, []);
+  const [blogs, setBlogs] = useState([])
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/blogs/list/")
+      .then((a) => a.json())
+      .then((a) => setBlogs(a))
+  }, [])
   return (
     <>
       <section className="home_hero full-container">
@@ -38,7 +44,7 @@ function Home() {
         </div>
       </section>
 
-      <section   className="home_natural_offer container">
+      <section className="home_natural_offer container">
         <div data-aos="fade-right" className="home_natural">
           <img src="static/home_natural.png" />
           <div className="title">
@@ -62,13 +68,13 @@ function Home() {
         </div>
       </section>
 
-      <section  className="home_about full-container">
+      <section className="home_about full-container">
         <div className="home_about_inner container">
           <div data-aos="fade-up" className="home_about_image">
             <img src="static/home-about-img.png" />
           </div>
           <div className="home_about_content">
-            <div  data-aos="fade-up" className="home_title">
+            <div data-aos="fade-up" className="home_title">
               <h5>About Us</h5>
               <h3>We Believe in Working Accredited Farmers</h3>
               <p>
@@ -118,23 +124,23 @@ function Home() {
 
       <section data-aos="fade-up" className="home_our_products ">
         <div className="container_home_product">
-        <div className="home_title">
-          <h5>Categories</h5>
-          <h3>Our Products</h3>
-        </div>
-        <div className="home_our_products_content">
-          <div className="home_products">
-            {products.slice(0, 8).map((a) => (
-              <Product data={a} key={a.id} />
-            ))}
+          <div className="home_title">
+            <h5>Categories</h5>
+            <h3>Our Products</h3>
           </div>
-          <Link to="/shop">
-            <button className="blue_btn">
-              <p>Load More</p>
-              <i className="fa-solid fa-circle-arrow-right"></i>
-            </button>
-          </Link>
-        </div>
+          <div className="home_our_products_content">
+            <div className="home_products">
+              {products.slice(0, 8).map((a) => (
+                <Product data={a} key={a.id} />
+              ))}
+            </div>
+            <Link to="/shop">
+              <button className="blue_btn">
+                <p>Load More</p>
+                <i className="fa-solid fa-circle-arrow-right"></i>
+              </button>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -234,7 +240,7 @@ function Home() {
       </section>
 
       <section className="home_offer_blue full-container">
-        <div  className="home_offer_organic container">
+        <div className="home_offer_organic container">
           <div data-aos="fade-up" className="offer_title_button">
             <div className="home_title">
               <h5>Offer</h5>
@@ -248,7 +254,7 @@ function Home() {
             </Link>
           </div>
 
-          <div  data-aos="fade-up" className="home_offer_products">
+          <div data-aos="fade-up" className="home_offer_products">
             {products.slice(3, 7).map((a) => (
               <Product data={a} key={a.id} />
             ))}
@@ -267,30 +273,30 @@ function Home() {
             <h3>Econis is a Friendly Organic Store</h3>
           </div>
 
-          <div  data-aos="fade-up" className="eco_list_item">
+          <div data-aos="fade-up" className="eco_list_item">
             <h3>Start with Our Company First</h3>
             <p>
-            Our company is committed to providing customers with the freshest, highest quality organic foods available.
+              Our company is committed to providing customers with the freshest, highest quality organic foods available.
             </p>
           </div>
 
           <div data-aos="fade-up" className="eco_list_item">
             <h3>Learn How to Grow Yourself</h3>
             <p>
-            If you're interested in learning about organic foods, we offer a variety of educational resources and classes to help you get started.
+              If you're interested in learning about organic foods, we offer a variety of educational resources and classes to help you get started.
             </p>
           </div>
-          <div  data-aos="fade-up" className="eco_list_item">
+          <div data-aos="fade-up" className="eco_list_item">
             <h3>Farming Strategies of Today</h3>
             <p>
-            We believe that everyone deserves access to healthy, nutritious organic foods, and we work hard to make our products affordable and accessible to all
+              We believe that everyone deserves access to healthy, nutritious organic foods, and we work hard to make our products affordable and accessible to all
             </p>
           </div>
         </div>
       </section>
 
       <section className="bg_gray full-container">
-        <div  data-aos="fade-up" className="home_fon">
+        <div data-aos="fade-up" className="home_fon">
           <div className="fon">
             <img src="static/juice.jpg" />
             <Link to="/service-single">
@@ -302,7 +308,7 @@ function Home() {
             <img src="static/yarpaq-food.jpg" />
             <Link to="/service-single">
               <a href="#" className="fon_btn">
-               Organic Food
+                Organic Food
               </a>
             </Link>
           </div>
@@ -332,68 +338,34 @@ function Home() {
                   <i className="fa-solid fa-circle-arrow-right"></i>
                 </button>
               </Link>
-            </div>
-          </div>
-          <div className="home_blog_main">
-            <div data-aos="fade-up" className="blog_item">
-              <div className="blog_item_image">
-                <a href="#">
-                  <img src="static/home_blog_image1.png" />
-                </a>
-                <div className="blog_item_date">
-                  <h6>14 Feb</h6>
-                </div>
-              </div>
-              <div className="blog_item_content">
-                <div className="blog_author">
-                  <img src="static/blog_author.png" />
-                  <a href="#">Kristina Castle</a>
-                </div>
-                <div className="blog_title_area">
-                  <a className="blog_title_link" href="#">
-                    The Benefits of Vitamin D & How to Get It
-                  </a>
-                  <p>
-                  Eating organic foods can help reduce exposure to harmful chemicals and toxins that are commonly found in conventionally grown produce and processed foods.
-                  </p>
-                </div>
-                <Link to="/blog/blog_single/1">
-                  <button className="yellow_btn">
-                    <p>Read More</p>
-                    <i className="fa-solid fa-circle-arrow-right"></i>
-                  </button>
-                </Link>
-              </div>
-            </div>
 
-            <div data-aos="fade-up" className="blog_item">
-              <div className="blog_item_image">
-                <a href="#">
-                  <img src="static/home_blog_image2.png" />
-                </a>
-                <div className="blog_item_date">
-                  <h6>14 Feb</h6>
+
+
+            </div>
+            <div className="container blog_products">
+              {blogs.slice(0, 2).map((a) => (
+
+                <div key={a.id} className="blog_product position">
+                  <img src={a.image}></img>
+                  <div className="blog_prd_absolute_date">
+                    <h2 className="h3">{a.created_at_display}</h2>
+                  </div>
+                  <div className="blog_prd_absolute">
+                    <div className="user"><h4 className="user"><i className="fa-solid fa-user"></i>By {a.writer}</h4></div>
+                    <h3 className="name">{a.blog_name}</h3>
+                    <p className="p">{a.abstract}</p>
+                    <Link to={`/blog/blog_single/${a.id}`}>
+                      <h3 className="readmore">Read More
+                        <div className="arrow">
+                          <i className="fa-solid fa-arrow-right"></i>
+                        </div>
+                      </h3>
+                    </Link>
+                  </div>
                 </div>
-              </div>
-              <div className="blog_item_content">
-                <div className="blog_author">
-                  <img src="static/blog_author.png" />
-                  <a href="#">By Rachi Card</a>
-                </div>
-                <div className="blog_title_area">
-                  <a className="blog_title_link" href="#">
-                    Our Favourite Summertime Tommeto</a>
-                  <p>
-                  Organic tomatoes, in particular, are often sweeter and more flavorful than their conventionally grown counterparts, since they're allowed to ripen on the vine and are free from synthetic pesticides and fertilizers.
-                  </p>
-                </div>
-                <Link to="/blog/blog_single/2">
-                  <button className="yellow_btn">
-                    <p>Read More</p>
-                    <i className="fa-solid fa-circle-arrow-right"></i>
-                  </button>
-                </Link>
-              </div>
+              ))}
+
+
             </div>
           </div>
         </div>
