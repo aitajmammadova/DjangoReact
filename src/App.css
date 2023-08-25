@@ -2808,7 +2808,11 @@ header {
   transition: 0.4s ease;
   gap: 10px;
 }
-
+.success_modal_blue_btn{
+ display: flex;
+ justify-content: center;
+ align-items: center; 
+}
 .modal_payment {
   display: flex;
   justify-content: center;

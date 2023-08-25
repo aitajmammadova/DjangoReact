@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Modal from "react-modal";
+import SuccessModal from "../components/SuccessModal";
 function PaymentModal({
   paymentModalShown,
   setPaymentModalShown,
@@ -24,65 +25,45 @@ function PaymentModal({
       payload: [...basket.filter((a) => a.id !== id)],
     });
   };
+  const [successModalShown, setSuccessModalShown] = useState(false);
+  // const [formData, setFormData] = useState({
+  //   card_number: "",
+  //   exp_date: "",
 
-  const [formData, setFormData] = useState({
-    card_number: "",
-    exp_date: "",
-    email: "mamadzadeh.01@gmail.com",
-    security_code: "",
-  });
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [modalContent, setModalContent] = useState({
-    title: "",
-    message: "",
-  });
-  const openModal = (title, message) => {
+  //   security_code: "",
+  // });
+  // const [modalIsOpen, setModalIsOpen] = useState(false);
+  // const [modalContent, setModalContent] = useState({
+  //   title: "Success",
+  //   message: "Thank you !",
+  // });
+  const closePayment = () => {
     setModalContent({ title, message });
     setModalIsOpen(true);
   };
 
-  const closeModal = () => {
-    setModalIsOpen(false);
-    setModalContent({
-      title: "",
-      message: "",
-    });
+  // const closeModal = () => {
+  //   setModalIsOpen(false);
+  //   setModalContent({
+  //     title: "",
+  //     message: "",
+  //   });
+  // };
 
-  };
+  // console.log(formData);
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
-  console.log(formData)
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  //   openModal("Success", "Thank you! Your contact information has been saved.");
+  // };
 
-    try {
-      const response = await axios.post(
-        "http://127.0.0.1:8000/api/create-card/",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(formData)
-        });
-
-      const data = await response.json();
-      if (response.ok) {
-        openModal("Success", "Thank you! Your contact information has been saved.");
-      } else {
-        openModal("Error", "Formu göndermek mümkün olmadı: " + data.error);
-      }
-    } catch (error) {
-      openModal("Error", "Formu göndermek mümkün olmadı: " + error.message);
-    }
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+  // const handleInputChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData((prevData) => ({
+  //     ...prevData,
+  //     [name]: value,
+  //   }));
+  // };
   return (
     <div id="myPayModal" className="pay_modal">
       <div className="pay_modal_inner">
@@ -98,7 +79,7 @@ function PaymentModal({
         <hr />
         <div className="pay_modal_card_products">
           <div className="pay_modal_card_information">
-            <form method="post" onSubmit={handleSubmit}>
+            <form>
               <div data-aos="fade-up" className="form_row">
                 <div className="form_form">
                   <label htmlFor="card_number" className="form_label">
@@ -110,9 +91,9 @@ function PaymentModal({
                     maxLength="10"
                     placeholder=" Enter Card Number"
                     id="card_number"
-                    value={formData.card_number}
-                    onChange={handleInputChange}
-                    name="card_number"
+                    // value={formData.card_number}
+                    // onChange={handleInputChange}
+                    // name="card_number"
                   />
                 </div>
               </div>
@@ -127,9 +108,9 @@ function PaymentModal({
                     maxLength="5"
                     placeholder="MM / YY"
                     id="card_date"
-                    value={formData.exp_date}
-                    onChange={handleInputChange}
-                    name="exp_date"
+                    // value={formData.exp_date}
+                    // onChange={handleInputChange}
+                    // name="exp_date"
                   />
                 </div>
               </div>
@@ -144,9 +125,9 @@ function PaymentModal({
                     maxLength="3"
                     placeholder="CVC"
                     id="card_scode"
-                    value={formData.security_code}
-                    onChange={handleInputChange}
-                    name="security_code"
+                    // value={formData.security_code}
+                    // onChange={handleInputChange}
+                    // name="security_code"
                   />
                 </div>
               </div>
@@ -211,10 +192,14 @@ function PaymentModal({
           </div>
           <Link to="/delivery">
             <div
-              onClick={() => setPaymentModalShown(!paymentModalShown)}
+              onClick={() => setSuccessModalShown(!successModalShown)}
               className="modal_payment"
             >
-              <div className=" blue_btn">
+              <div
+              // onClick={() => setPaymentModalShown(!paymentModalShown)}
+                
+                className=" blue_btn"
+              >
                 <p>Complete</p>
                 <i className="fa-solid fa-circle-arrow-right"></i>
               </div>
@@ -222,7 +207,7 @@ function PaymentModal({
           </Link>
         </div>
       </div>
-      <Modal
+      {/* <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Message Modal"
@@ -231,7 +216,14 @@ function PaymentModal({
         <h2>{modalContent.title}</h2>
         <p>{modalContent.message}</p>
         <button onClick={closeModal}>Close</button>
-      </Modal>
+      </Modal> */}
+
+      {successModalShown && (
+        <SuccessModal
+          successModalShown={successModalShown}
+          setSuccessModalShown={setSuccessModalShown}
+        />
+      )}
     </div>
   );
 }

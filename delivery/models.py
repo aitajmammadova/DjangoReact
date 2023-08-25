@@ -1,4 +1,4 @@
-from django.db import models
+
 
 # Create your models here.
 from django.db import models
@@ -16,13 +16,13 @@ class DeliveryInformation(models.Model):
         return self.full_name
     
 
-class CardInformation(models.Model):
-    email = models.ForeignKey(DeliveryInformation , on_delete=models.SET_NULL , null=True)
-    card_number = models.IntegerField()
-    exp_date = models.CharField(max_length=20)
-    security_code = models.IntegerField()
+# class CardInformation(models.Model):
+    
+#     card_number = models.IntegerField()
+#     exp_date = models.CharField(max_length=20)
+#     security_code = models.IntegerField()
 
-    def __str__(self):
-        return self.email
+#     def __str__(self):
+#         return self.email
 
     

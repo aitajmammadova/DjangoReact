@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+
 import "./App.css";
 import "./Home.css";
 import "./Responsive.css";
@@ -55,26 +56,12 @@ function App({ dispatch }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-
-  // const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  // if (isAuthenticated) {
-  //   useEffect(() => {
-  //     fetch("http://127.0.0.1:8000/api/accounts/me/", {
-  //       headers: { Authorization: `Bearer ${localStorage["accessToken"]}` },
-  //     })
-  //       .then((response) => response.json())
-  //       .then((data) => setCurrentUser(data));
-  //   }, []);
-  // }
+ 
 
   return (
     <>
       <div className="App">
-        {/* {isAuthenticated ? (
-          <h1 style={{ color: "red" }}>{currentUser ? currentUser.email: ""}</h1>
-        ) : (
-          <h1 style={{ color: "red" }}>FALSE</h1>
-        )} */}
+        
         <AnimatedCursor
           innerSize={12}
           outerSize={14}

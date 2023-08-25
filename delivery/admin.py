@@ -12,10 +12,10 @@ class DeliveryInformationAdmin(admin.ModelAdmin):
 admin.site.register(DeliveryInformation, DeliveryInformationAdmin)
 
 
-from .models import CardInformation
+# from .models import CardInformation
 
-class CardInformationAdmin(admin.ModelAdmin):
-    list_display = ('email', 'card_number', 'exp_date', 'security_code')  # Görüntülənəcək sütunlar
+# class CardInformationAdmin(admin.ModelAdmin):
+#     list_display = ( 'card_number', 'exp_date', 'security_code')  # Görüntülənəcək sütunlar
     
 
-admin.site.register(CardInformation, CardInformationAdmin)
+# admin.site.register(CardInformation, CardInformationAdmin)
